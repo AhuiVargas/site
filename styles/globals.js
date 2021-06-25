@@ -1,10 +1,12 @@
 import { createGlobalStyle } from 'styled-components';
 import theme from './theme';
+import { media } from './media';
 const { colors, fonts } = theme;
 
 const GlobalStyle = createGlobalStyle`
   html {
     box-sizing: border-box;
+    text-size-adjust: 100%;
   }
   *,
   *:before,
@@ -30,6 +32,11 @@ const GlobalStyle = createGlobalStyle`
     line-height: 1.2;
     margin-bottom: .5rem;
     font-weight: 800;
+    ${media.bp700`
+      font-size: 2.4rem;
+      margin-bottom: 2rem;
+      font-weight: 800;
+    `}
   }
 
   h2 {
@@ -38,7 +45,11 @@ const GlobalStyle = createGlobalStyle`
     color: ${colors.blueFont};
     font-weight: 800;
     margin-top: 0;
+    ${media.bp700`
+      font-size: 1.6rem;
+    `}
   }
+
   a {
     text-decoration: none;
     transition: ${theme.transition};
@@ -47,11 +58,16 @@ const GlobalStyle = createGlobalStyle`
     font-size: 1.7rem;
     font-weight: 700;
     cursor: pointer;
+    border-radius: 0.5rem;
   }
+
   p {
     line-height: 1.5;
     font-size: 1.7rem;
     font-weight: 400;
+    ${media.bp700`
+      font-size: 1.3rem;
+    `}
   }
 `;
 

@@ -3,11 +3,12 @@ import React from "react";
 import Image from "next/image";
 import styled from "styled-components";
 import memoji from "../styles/assets/memoji.png"
-import { mixins } from '../styles';
+import { mixins, theme, media } from '../styles';
+const { colors } = theme;
 
 const HeroHeaderStyled = styled.section`
   position: relative;
-  padding-top: 10rem;
+  padding-top: 2rem;
   padding-bottom: 4rem;
   overflow: visible;
 
@@ -21,13 +22,33 @@ const HeroHeaderStyled = styled.section`
       margin: 0px auto;
       padding: 0px 2rem;
 
+      .__Content {
+        a {
+          ${media.bp700`
+            font-size: 1.1rem;
+            font-weight: 800;
+            word-break: break-all;
+            background-color: ${colors.navy};
+            color: ${colors.offWhite};
+            padding: 0px 0.25rem;
+            margin: 0px;
+          `}
+        }
+      }
+
       .__MemojiContainer {
         ${mixins.flexEnd}
-        margin-bottom: 3rem;
-    
+        margin-bottom: 3rem;  
+        ${media.bp700`
+        display: block
+      `}
+
         .__Memoji {
           max-width: 15rem;
           line-height: 0;
+          ${media.bp700`
+          margin: 0px auto;
+          `}
     
           .__Title {
             margin-bottom: 0.25rem;
@@ -69,12 +90,17 @@ const StyledFooter = styled.footer`
     a {
       display: block;
       padding: 1rem;
-      color: rgb(15, 20, 25);
+      color: ${colors.blackFont};
       text-align: center;
-      background: rgb(191, 197, 193);
+      background-color: ${colors.gray};
       border-radius: 0.5rem;
       font-size: 1.2rem;
       font-weight: 400;
+
+      &:hover {
+        color: white;
+        background-color: ${colors.darkGray};
+      }
     }
   }
 `;
@@ -85,14 +111,14 @@ const Home = () => {
       <HeroHeaderStyled>
         <div className="__HeroContent">
           <div className="__Wrapper">
-            <StyledNav>
+            {/* <StyledNav>
               <div className="__wrapper">
                 <nav>
                   <a>Ahuizotl Vargas</a>
                 </nav>
               </div>
-            </StyledNav>
-    
+            </StyledNav> */}
+
             <div className="__MemojiContainer">
               <div className="__Memoji">
                 <Image src={memoji} alt="memoji image"></Image>
@@ -103,32 +129,34 @@ const Home = () => {
               </div>
             </div>
     
-            <p>{"I'm a frontend web developer from Mexico City 🇲🇽  who loves "}<strong>{"NextJs, React, Styled-Components, Tailwind, GraphQL, and Node."}</strong></p>
-            <p>
-              {"I work at"} {" "}
-              <a href="https://kingtide.com/" rel="noopener noreferrer" target="_blank" className="__Link">{"KingTide"}</a> {" "}
-              {"as a Frontend Web Developer, before I was part of "}
-              <a href="https://rappi.com.mx/" rel="noopener noreferrer" target="_blank" className="__Link">{"Rappi"}</a>.
-            </p>
-            <p>
-              {"Studied at "}
-              <a href="https://ironhack.com/" rel="noopener noreferrer" target="_blank" className="__Link">{"IronHack"}</a> {" "}
-              {"and got a Certificate for the "}<strong>{"Fullstack Web Development "}</strong>{"bootcamp 💻."}
-            </p>
-            <p>
-              {"I hate working alone, so please "}
-              <a href="https://twitter.com/intent/tweet?text=Hi%20@itsmeahui%21" rel="noopener noreferrer" target="_blank" className="__Link">{"say hi. ♥️"}</a>
-            </p>
+            <div className="__Content"> 
+              <p>{"I'm a frontend web developer from Mexico City 🇲🇽  who loves "}<strong>{"NextJs, React, Styled-Components, Tailwind, GraphQL, and Node."}</strong></p>
+              <p>
+                {"I work at"} {" "}
+                <a href="https://kingtide.com/" rel="noopener noreferrer" target="_blank" className="__Link">{"King Tide"}</a> {" "}
+                {"as a Frontend Web Developer, before I was part of "}
+                <a href="https://rappi.com.mx/" rel="noopener noreferrer" target="_blank" className="__Link">{"Rappi"}</a>.
+              </p>
+              <p>
+                {"Studied at "}
+                <a href="https://ironhack.com/" rel="noopener noreferrer" target="_blank" className="__Link">{"IronHack"}</a> {" "}
+                {"and got a Certificate for the "}<strong>{"Fullstack Web Development "}</strong>{"bootcamp 💻."}
+              </p>
+              <p>
+                {"I hate working alone, so please "}
+                <a href="https://twitter.com/intent/tweet?text=Hi%20@itsmeahui%21" rel="noopener noreferrer" target="_blank" className="__Link">{"say hi. ♥️"}</a>
+              </p>
+            </div>
     
             <StyledFooter>
               <div className="__wrapper">
                 <div className="__menu">
-                  <a>Email</a>
-                  <a>CV</a>
-                  <a>GitHub</a>
-                  <a>GitHub</a>
-                  <a>GitHub</a>
-                  <a>GitHub</a>
+                  <a href="mailto:ahuijr@gmail.com" rel="noopener noreferrer" target="_blank">Email</a>
+                  <a href="https://read.cv/ahuizotl" rel="noopener noreferrer" target="_blank">CV</a>
+                  <a href="https://www.linkedin.com/in/ahui-vargas" rel="noopener noreferrer" target="_blank">LinkedIn</a>
+                  <a href="https://github.com/AhuiVargas/" rel="noopener noreferrer" target="_blank">GitHub</a>
+                  <a href="https://twitter.com/itsmeahui" rel="noopener noreferrer" target="_blank">Twitter</a>
+                  <a href="https://www.instagram.com/ahuivargas/" rel="noopener noreferrer" target="_blank">Instagram</a>
                 </div>
               </div>
             </StyledFooter>
