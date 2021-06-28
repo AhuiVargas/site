@@ -11,7 +11,7 @@ const { colors } = theme;
 
 const HeroHeaderStyled = styled.section`
   position: relative;
-  padding-top: 10rem;
+  padding-top: 8rem;
   padding-bottom: 4rem;
   overflow: visible;
 
@@ -28,7 +28,7 @@ const HeroHeaderStyled = styled.section`
       .__Content {
         a {
           ${media.bp1024`
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             font-weight: 800;
             word-break: break-all;
             background-color: ${colors.navy};
@@ -96,9 +96,7 @@ const StyledNav = styled.div`
   }
   
   .__Menu {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    ${mixins.flexCenterBetween};
     overflow: hidden;
     border-radius: 0.5rem;
     backdrop-filter: blur(16px);
@@ -109,7 +107,8 @@ const StyledNav = styled.div`
       padding: 1rem 2rem;
       color: rgb(238, 238, 238);
       font-size: 1rem;
-      cursor: pointer;
+      font-weight: 400;
+      cursor: default;
     }
   }
 
@@ -129,9 +128,7 @@ const StyledNav = styled.div`
       margin: 1rem 0px;
 
       .__SwitchMobile {
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        ${mixins.flexCenter};
         color: rgb(238, 238, 238);
         text-align: center;
         background-color: rgba(0, 0, 0, 0.5);
@@ -157,8 +154,7 @@ const StyledNav = styled.div`
         }
 
         .__ThemeSwitch {
-          display: flex;
-          justify-content: flex-end;
+          ${mixins.flexEnd};
           padding: 0.5rem 1rem;
           color: ${colors.offWhite};
           background: transparent;
@@ -292,8 +288,10 @@ const Home = () => {
                   <a href="https://read.cv/ahuizotl" rel="noopener noreferrer" target="_blank">CV</a>
                   <a href="https://www.linkedin.com/in/ahui-vargas" rel="noopener noreferrer" target="_blank">LinkedIn</a>
                   <a href="https://github.com/AhuiVargas/" rel="noopener noreferrer" target="_blank">GitHub</a>
+                  {/* <a href="https://www.codewars.com/users/Ahuizotl" rel="noopener noreferrer" target="_blank">CodeWars</a> */}
                   <a href="https://twitter.com/itsmeahui" rel="noopener noreferrer" target="_blank">Twitter</a>
                   <a href="https://www.instagram.com/ahuivargas/" rel="noopener noreferrer" target="_blank">Instagram</a>
+                  {/* <a href="https://www.mixcloud.com/ahui-vargas-casta%C3%B1eda/" rel="noopener noreferrer" target="_blank">MixCloud</a> */}
                 </div>
               </div>
             </StyledFooter>

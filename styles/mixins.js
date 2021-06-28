@@ -7,9 +7,16 @@ const mixins = {
     align-items: center;
   `,
 
+  flexCenterBetween: css`
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  `,
+
   flexEnd: css`
     display: flex;
     align-items: flex-end;
+    justify-content: flex-end;
   `,
 
   grid: css`
