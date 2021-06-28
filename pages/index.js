@@ -2,13 +2,16 @@ import Head from "next/head";
 import React from "react";
 import Image from "next/image";
 import styled from "styled-components";
-import memoji from "../styles/assets/memoji.png"
+import { Cross as Hamburger} from 'hamburger-react';
+import memoji from "../styles/assets/memoji.png";
+import sun from "../styles/assets/sun.svg";
+import moon from "../styles/assets/moon.svg"
 import { mixins, theme, media } from '../styles';
 const { colors } = theme;
 
 const HeroHeaderStyled = styled.section`
   position: relative;
-  padding-top: 2rem;
+  padding-top: 10rem;
   padding-bottom: 4rem;
   overflow: visible;
 
@@ -73,6 +76,87 @@ const StyledNav = styled.div`
   left: 0px;
   background-color: transparent;
   z-index: 200;
+  ${mixins.outline};
+  border-radius: 
+
+  .__Wrapper {
+    max-width: 74rem;
+    background-color: transparent;
+  }
+
+  .__Menu {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    overflow: hidden;
+    border-radius: 0.5rem;
+    backdrop-filter: blur(16px);
+    transition: all 0.3s ease-in-out 0s;
+    background-color: rgba(0, 0, 0, 0.75);
+    ${mixins.outline};
+
+    .__AnchorLink {
+      padding: 1rem 2rem;
+      color: rgb(238, 238, 238);
+      font-size: 1rem;
+      cursor: pointer;
+    }
+  }
+
+  .__MenuMobile {
+
+    .__LinkGroup {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+      margin: 1rem 0px;
+      ${mixins.outline};
+
+      .__SwitchMobile {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: rgb(238, 238, 238);
+        text-align: center;
+        background-color: rgba(0, 0, 0, 0.5);
+        border-radius: 0.5rem;
+        cursor: pointer;
+        backdrop-filter: blur(16px);
+
+        .__LangSwitch {
+          display: block;
+          padding: 1rem;
+          color: rgb(238, 238, 238);
+          background: transparent;
+          border: transparent;
+          cursor: pointer;
+
+          option {
+            font-weight: normal;
+            display: block;
+            white-space: nowrap;
+            min-height: 1.2em;
+            padding: 0px 2px 1px;
+          }
+        }
+
+        .__ThemeSwitch {
+          display: flex;
+          justify-content: flex-end;
+          padding: 0.5rem 1rem;
+          color: ${colors.offWhite};
+          background: transparent;
+          border: transparent;
+          cursor: pointer;
+          margin: 0px !important;
+          img {
+            width: 2rem;
+            height: auto;
+          }
+        }
+      }
+    }
+  }
 `;
 
 const StyledFooter = styled.footer`
@@ -106,19 +190,40 @@ const StyledFooter = styled.footer`
 `;
 
 const Home = () => {
+  const [isOpen, setIsOpen] = React.useState(false);
+
   return (
     <main>
+      <StyledNav>
+        <div className="__Wrapper">
+          <nav className="__Menu">
+            <a className="__AnchorLink">Ahuizotl Vargas</a>
+            <div className="__BurgerBox">
+              <Hamburger toggled={isOpen} toggle={setIsOpen} color={colors.offWhite} duration={0.0} size={25}/>
+            </div>
+          </nav>
+          {isOpen ? (
+            <nav className="__MenuMobile">
+              <div className="__LinkGroup">
+                <div className="__SwitchMobile">
+                  <select className="__LangSwitch">
+                    <option value="en">EN</option>
+                    <option value="es">ES</option>
+                  </select>
+                </div>
+                <div className="__SwitchMobile">
+                  <button aria-label="Cambia el tema visual" className="__ThemeSwitch">
+                    <Image src={moon} alt="sun image"/>
+                  </button>
+                </div>
+              </div>
+            </nav>
+          ) : null}
+        </div>
+      </StyledNav>
       <HeroHeaderStyled>
         <div className="__HeroContent">
           <div className="__Wrapper">
-            {/* <StyledNav>
-              <div className="__wrapper">
-                <nav>
-                  <a>Ahuizotl Vargas</a>
-                </nav>
-              </div>
-            </StyledNav> */}
-
             <div className="__MemojiContainer">
               <div className="__Memoji">
                 <Image src={memoji} alt="memoji image"></Image>
