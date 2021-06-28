@@ -1,7 +1,7 @@
 import { css } from "styled-components";
 
 const sizes = {
-  bp900: 900,
+  bp1024: 1024,
   bp700: 700,
   bp400: 400,
 };

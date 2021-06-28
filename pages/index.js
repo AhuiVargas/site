@@ -1,5 +1,5 @@
 import Head from "next/head";
-import React from "react";
+import React, {Fragment} from "react";
 import Image from "next/image";
 import styled from "styled-components";
 import { Cross as Hamburger} from 'hamburger-react';
@@ -27,7 +27,7 @@ const HeroHeaderStyled = styled.section`
 
       .__Content {
         a {
-          ${media.bp700`
+          ${media.bp1024`
             font-size: 1.1rem;
             font-weight: 800;
             word-break: break-all;
@@ -42,15 +42,15 @@ const HeroHeaderStyled = styled.section`
       .__MemojiContainer {
         ${mixins.flexEnd}
         margin-bottom: 3rem;  
-        ${media.bp700`
-        display: block
-      `}
+        ${media.bp1024`
+          display: block
+        `}
 
         .__Memoji {
           max-width: 15rem;
           line-height: 0;
-          ${media.bp700`
-          margin: 0px auto;
+          ${media.bp1024`
+            margin: 0px auto;
           `}
     
           .__Title {
@@ -76,7 +76,6 @@ const StyledNav = styled.div`
   left: 0px;
   background-color: transparent;
   z-index: 200;
-  ${mixins.outline};
   border-radius: 
 
   .__Wrapper {
@@ -84,6 +83,18 @@ const StyledNav = styled.div`
     background-color: transparent;
   }
 
+  .fullscreen {
+    padding: 2rem;
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    left: 0px;
+    z-index: 200;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(16px);
+  }
+  
   .__Menu {
     display: flex;
     align-items: center;
@@ -93,7 +104,6 @@ const StyledNav = styled.div`
     backdrop-filter: blur(16px);
     transition: all 0.3s ease-in-out 0s;
     background-color: rgba(0, 0, 0, 0.75);
-    ${mixins.outline};
 
     .__AnchorLink {
       padding: 1rem 2rem;
@@ -103,6 +113,13 @@ const StyledNav = styled.div`
     }
   }
 
+  .__Menu.active {
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 0.5rem;
+    backdrop-filter: blur(16px);
+    transition: all 0.3s ease-in-out 0s;
+  }
+
   .__MenuMobile {
 
     .__LinkGroup {
@@ -110,7 +127,6 @@ const StyledNav = styled.div`
       grid-template-columns: repeat(2, 1fr);
       gap: 1rem;
       margin: 1rem 0px;
-      ${mixins.outline};
 
       .__SwitchMobile {
         display: flex;
@@ -191,34 +207,50 @@ const StyledFooter = styled.footer`
 
 const Home = () => {
   const [isOpen, setIsOpen] = React.useState(false);
+  const [isScrolling, setIsScrolling] = React.useState(false)
+
+  React.useEffect(() => {
+    const handleScroll = () => {
+      if(window.scrollY >= 20) {
+        setIsScrolling(true);
+      } else {
+        setIsScrolling(false);
+      }
+    }
+    window.addEventListener('scroll', handleScroll);
+  }, [])
 
   return (
     <main>
       <StyledNav>
-        <div className="__Wrapper">
-          <nav className="__Menu">
-            <a className="__AnchorLink">Ahuizotl Vargas</a>
-            <div className="__BurgerBox">
-              <Hamburger toggled={isOpen} toggle={setIsOpen} color={colors.offWhite} duration={0.0} size={25}/>
-            </div>
-          </nav>
-          {isOpen ? (
-            <nav className="__MenuMobile">
-              <div className="__LinkGroup">
-                <div className="__SwitchMobile">
-                  <select className="__LangSwitch">
-                    <option value="en">EN</option>
-                    <option value="es">ES</option>
-                  </select>
-                </div>
-                <div className="__SwitchMobile">
-                  <button aria-label="Cambia el tema visual" className="__ThemeSwitch">
-                    <Image src={moon} alt="sun image"/>
-                  </button>
-                </div>
+        <div className={isOpen ? "fullscreen" : null}>
+          <div className="__Wrapper">
+            <nav className={isScrolling && !isOpen ? "__Menu active" : "__Menu"}>
+              <a className="__AnchorLink">Ahuizotl Vargas</a>
+              <div className="__BurgerBox">
+                <Hamburger toggled={isOpen} toggle={setIsOpen} color={colors.offWhite} duration={0.0} size={25}/>
               </div>
             </nav>
-          ) : null}
+            {isOpen ? (
+              <Fragment>
+                <nav className="__MenuMobile">
+                  <div className="__LinkGroup">
+                    <div className="__SwitchMobile">
+                      <select className="__LangSwitch">
+                        <option value="en">EN</option>
+                        <option value="es">ES</option>
+                      </select>
+                    </div>
+                    <div className="__SwitchMobile">
+                      <button aria-label="Cambia el tema visual" className="__ThemeSwitch">
+                        <Image src={moon} alt="sun image"/>
+                      </button>
+                    </div>
+                  </div>
+                </nav>
+              </Fragment>
+            ) : null}
+          </div>
         </div>
       </StyledNav>
       <HeroHeaderStyled>
