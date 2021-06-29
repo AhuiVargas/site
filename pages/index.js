@@ -1,18 +1,16 @@
-import Head from "next/head";
 import React, { Fragment } from "react";
 import router, { useRouter } from "next/router";
-import Link from 'next/link'
 import Image from "next/image";
 import styled from "styled-components";
 import { Cross as Hamburger } from 'hamburger-react';
+import useDarkMode from 'use-dark-mode';
 
 import memoji from "../styles/assets/memoji.png";
 import sun from "../styles/assets/sun.svg";
 import moon from "../styles/assets/moon.svg"
 import en from "../locales/en";
 import es from "../locales/es";
-import { mixins, theme, media } from '../styles';
-const { colors } = theme;
+import { mixins, media } from '../styles';
 
 const HeroHeaderStyled = styled.section`
   position: relative;
@@ -32,12 +30,19 @@ const HeroHeaderStyled = styled.section`
 
       .__Content {
         a {
+          &:hover {
+            font-weight: 800;
+            word-break: break-all;
+            background-color: ${props => props.theme.bg.tertiary};
+            color: ${props => props.theme.text.contrast};
+            padding: 0px 0.25rem;
+          }
           ${media.bp1024`
             font-size: 1.2rem;
             font-weight: 800;
             word-break: break-all;
-            background-color: ${colors.navy};
-            color: ${colors.offWhite};
+            background-color: ${props => props.theme.bg.tertiary};
+            color: ${props => props.theme.text.contrast};
             padding: 0px 0.25rem;
             margin: 0px;
           `}
@@ -99,6 +104,7 @@ const StyledNav = styled.div`
     background-color: rgba(0, 0, 0, 0.25);
     backdrop-filter: blur(16px);
   }
+
   
   .__Menu {
     ${mixins.flexCenterBetween};
@@ -106,22 +112,61 @@ const StyledNav = styled.div`
     border-radius: 0.5rem;
     backdrop-filter: blur(16px);
     transition: all 0.3s ease-in-out 0s;
-    background-color: rgba(0, 0, 0, 0.75);
+    background-color: ${props => props.theme.rgba.menu};
+
+    .__SwitchDesktop {
+      
+      ${media.bp1024`
+        display: none;
+      `}
+
+      .__LangSwitch {
+        display: block;
+        padding: 1rem;
+        color: ${props => props.theme.text.anchor};
+        background: transparent;
+        border: transparent;
+        cursor: pointer;
+
+        option {
+          font-weight: normal;
+          display: block;
+          white-space: nowrap;
+          min-height: 1.2em;
+          padding: 0px 2px 1px;
+        }
+      }
+    }
 
     .__AnchorLink {
       padding: 1rem 2rem;
-      color: rgb(238, 238, 238);
+      color: ${props => props.theme.text.anchor};
       font-size: 1rem;
       font-weight: 400;
       cursor: default;
     }
+
+    .__BurgerBox {
+      display: none;
+      ${media.bp1024`
+        display: inline;
+      `}
+
+      .hamburger-react {
+        color: ${props => props.theme.text.anchor};
+      }
+    }
+
   }
 
   .__Menu.active {
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: ${props => props.theme.rgba.active};
     border-radius: 0.5rem;
     backdrop-filter: blur(16px);
     transition: all 0.3s ease-in-out 0s;
+    &:hover {
+      background-color: ${props => props.theme.rgba.menu};
+    }
   }
 
   .__MenuMobile {
@@ -134,9 +179,9 @@ const StyledNav = styled.div`
 
       .__SwitchMobile {
         ${mixins.flexCenter};
-        color: rgb(238, 238, 238);
+        color: ${props => props.theme.text.contrast};
         text-align: center;
-        background-color: rgba(0, 0, 0, 0.5);
+        background-color: ${props => props.theme.rgba.active};
         border-radius: 0.5rem;
         cursor: pointer;
         backdrop-filter: blur(16px);
@@ -144,7 +189,7 @@ const StyledNav = styled.div`
         .__LangSwitch {
           display: block;
           padding: 1rem;
-          color: rgb(238, 238, 238);
+          color: ${props => props.theme.text.anchor};
           background: transparent;
           border: transparent;
           cursor: pointer;
@@ -161,7 +206,7 @@ const StyledNav = styled.div`
         .__ThemeSwitch {
           ${mixins.flexEnd};
           padding: 0.5rem 1rem;
-          color: ${colors.offWhite};
+          color: ${props => props.theme.text.anchor};
           background: transparent;
           border: transparent;
           cursor: pointer;
@@ -178,7 +223,6 @@ const StyledNav = styled.div`
 
 const StyledFooter = styled.footer`
   padding: 2rem;
-  color: rgb(221, 221, 221);
 
   .__wrapper {
     max-width: 74rem;
@@ -191,16 +235,16 @@ const StyledFooter = styled.footer`
     a {
       display: block;
       padding: 1rem;
-      color: ${colors.blackFont};
+      color: ${props => props.theme.text.primary};
       text-align: center;
-      background-color: ${colors.gray};
+      background-color: ${props => props.theme.bg.secondary};
       border-radius: 0.5rem;
       font-size: 1.2rem;
       font-weight: 400;
 
       &:hover {
         color: white;
-        background-color: ${colors.darkGray};
+        background-color: ${props => props.theme.bg.quarternary};
       }
     }
   }
@@ -211,6 +255,7 @@ const Home = () => {
   const [isScrolling, setIsScrolling] = React.useState(false)
   const { locale } = useRouter();
   const t = locale === 'en' ? en : es;
+  // const darkMode = useDarkMode();
 
   React.useEffect(() => {
     const handleScroll = () => {
@@ -225,7 +270,7 @@ const Home = () => {
 
   const changeLanguage = (e) => {
     const locale = e.target.value;
-    router.push(router.pathname, router.asPath, { locale }),
+    router.push(router.pathname, router.asPath, { locale, scroll: false }),
     setIsOpen(false);
   }
 
@@ -236,8 +281,18 @@ const Home = () => {
           <div className="__Wrapper">
             <nav className={isScrolling && !isOpen ? "__Menu active" : "__Menu"}>
               <a className="__AnchorLink">Ahuizotl Vargas</a>
+              <div className="__SwitchDesktop">
+              <select 
+                onChange={changeLanguage}
+                defaultValue={locale}
+                className="__LangSwitch"
+              >
+                <option value="en">EN</option>
+                <option value="es">ES</option>
+              </select>
+              </div>
               <div className="__BurgerBox">
-                <Hamburger toggled={isOpen} toggle={setIsOpen} color={colors.offWhite} duration={0.0} size={25}/>
+                <Hamburger toggled={isOpen} toggle={setIsOpen} duration={0.0} size={25}/>
               </div>
             </nav>
             {isOpen ? (
@@ -254,11 +309,9 @@ const Home = () => {
                         <option value="es">ES</option>
                       </select>
                     </div>
-                    <div className="__SwitchMobile">
-                      <button aria-label="Cambia el tema visual" className="__ThemeSwitch">
-                        <Image src={moon} alt="sun image"/>
-                      </button>
-                    </div>
+                    {/* <div className="__SwitchMobile">
+                      <button onClick={() => darkMode.toggle()}>☀️</button>
+                    </div> */}
                   </div>
                 </nav>
               </Fragment>
@@ -270,9 +323,9 @@ const Home = () => {
         <div className="__HeroContent">
           <div className="__Wrapper">
             <div className="__MemojiContainer">
-              <div className="__Memoji">
+              {/* <div className="__Memoji">
                 <Image src={memoji} alt="memoji image"></Image>
-              </div>
+              </div> */}
               <div>
                 <h1 className='__Title'>{t.title}</h1>
                 <h2 className='__Subtitle'>{t.subtitle}</h2>
@@ -290,7 +343,7 @@ const Home = () => {
               <p>
                 {t.p4} {" "}
                 <a href="https://ironhack.com/" rel="noopener noreferrer" target="_blank" className="__Link">{"IronHack"}</a> {" "}
-                {t.p5}<strong>{t.strong2}</strong>.
+                {t.p5} {" "}<strong>{t.strong2}</strong>.
               </p>
               {locale === 'es' ? (
                 <p>

@@ -1,7 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
-import theme from './theme';
 import { media } from './media';
-const { colors, fonts } = theme;
 
 const GlobalStyle = createGlobalStyle`
   html {
@@ -14,17 +12,17 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: inherit;
   }
   ::selection {
-    background-color: ${colors.offWhite};
-    color: ${colors.blackFont};
+    background-color: ${props => props.theme.bg.primary};
+    color: ${props => props.theme.text.primary};
   }
   body {
     margin: 0;
     padding: 0;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    font-family: ${fonts.inter};
-    color: ${colors.blackFont};
-    background-color: ${colors.offWhite};
+    font-family: ${props => props.theme.fonts.inter};
+    color: ${props => props.theme.text.primary};
+    background-color: ${props => props.theme.bg.primary};
   }
 
   h1 {
@@ -42,7 +40,7 @@ const GlobalStyle = createGlobalStyle`
   h2 {
     font-size: 2rem;
     line-height: 1.3;
-    color: ${colors.blueFont};
+    color: ${props => props.theme.text.secondary};
     font-weight: 800;
     margin-top: 0;
     ${media.bp700`
@@ -52,8 +50,8 @@ const GlobalStyle = createGlobalStyle`
 
   a {
     text-decoration: none;
-    transition: ${theme.transition};
-    color: ${colors.blueFont};
+    transition: ${props => props.theme.transition};
+    color: ${props => props.theme.text.secondary};
     display: inline-block;
     font-size: 1.7rem;
     font-weight: 700;

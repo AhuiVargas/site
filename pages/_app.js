@@ -1,7 +1,7 @@
 import App from "next/app";
 import React from "react";
-import { ThemeProvider } from "styled-components";
-import { theme, GlobalStyle } from "../styles";
+import Providers from './providers';
+import { GlobalStyle } from "../styles";
 
 class MyApp extends App {
   static async getInitialProps({ Component, ctx }) {
@@ -15,13 +15,14 @@ class MyApp extends App {
 
   render() {
     const { Component, pageProps } = this.props;
+
     return (
-      <ThemeProvider theme={theme}>
+      <Providers>
         <>
           <GlobalStyle />
           <Component {...pageProps} />
         </>
-      </ThemeProvider>
+      </Providers>
     );
   }
 }

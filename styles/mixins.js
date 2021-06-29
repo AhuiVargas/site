@@ -16,7 +16,6 @@ const mixins = {
   flexEnd: css`
     display: flex;
     align-items: flex-end;
-    justify-content: flex-end;
   `,
 
   grid: css`
