@@ -1,12 +1,44 @@
-const theme = {
-  colors: {
-    offWhite: '#eeeeee',
-    blackFont: '#0f1419',
-    blueFont: '#4677a8',
-    gray: '#bfc5c1',
-    navy: '#345280',
-    darkGray: '#777777'
+const light = {
+  bg: {
+    primary: '#eeeeee',  // offWhite
+    secondary: '#bfc5c1', // gray
+    tertiary: '#345280', // navy
+    quarternary: '#777777', //darkGray
   },
+  text: {
+    primary: '#0f1419',  // blackFront
+    secondary: '#4677a8', // blueFont
+    contrast: '#eeeeee',  // offWhite
+    anchor: '#eeeeee'
+  },
+  rgba: {
+    fullscreen: 'rgba(0, 0, 0, 0.25)',
+    menu: 'rgba(0, 0, 0, 0.75)',
+    active: 'rgba(0, 0, 0, 0.5)',
+  },
+}
+
+const dark = {
+  bg: {
+    primary: '#151515', // black 
+    secondary: '#181818', // lighter black 
+    tertiary: '#345280', // navy
+    quarternary: '#ADADAD' // light gray
+  },
+  text: {
+    primary: '#eeeeee',  // offWhite
+    secondary: '#4677a8', // blueFront
+    contrast: '#eeeeee',  // offWhite
+    anchor: '#0f1419',  // blackFront
+  },
+  rgba: {
+    fullscreen: 'rgba(0, 0, 0, 0.25)',
+    menu: 'rgba(255, 255, 255, 0.85)',
+    active: 'rgba(255, 255, 255, 0.65)',
+  },
+}
+
+const defaultTheme = {
 
   fonts: {
     inter: 'Inter, system, -apple-system, BlinkMacSystemFont, Roboto, Segoe UI, Arial, sans-serif',
@@ -16,4 +48,5 @@ const theme = {
   transition: 'all 0.3s ease-in-out 0s',
 }
 
-export default theme;
+export const lightTheme = { ...defaultTheme, ...light};
+export const darkTheme = { ...defaultTheme, ...dark};
