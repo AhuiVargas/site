@@ -173,7 +173,6 @@ const StyledNav = styled.div`
 
     .__LinkGroup {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
       gap: 1rem;
       margin: 1rem 0px;
 
@@ -338,34 +337,28 @@ const Home = () => {
                 {t.p2} {" "}
                 <a href="https://kingtide.com/" rel="noopener noreferrer" target="_blank" className="__Link">{"King Tide"}</a> {" "}
                 {t.p3} {" "}
-                <a href="https://rappi.com.mx/" rel="noopener noreferrer" target="_blank" className="__Link">{"Rappi"}</a>.
+                {/* <a href="https://rappi.com.mx/" rel="noopener noreferrer" target="_blank" className="__Link">{"Rappi"}</a>. */}
               </p>
               <p>
                 {t.p4} {" "}
                 <a href="https://ironhack.com/" rel="noopener noreferrer" target="_blank" className="__Link">{"IronHack"}</a> {" "}
                 {t.p5} {" "}<strong>{t.strong2}</strong>.
               </p>
-              {locale === 'es' ? (
+              {/* <p>{"I have currently two years worth of experience, building happy projects for happy people 😄. And I mean to keep doing so"}.</p>
+              <p>{"My hobbies include exploring cities in roller skates, mountains on a bicycle and hearts with music 🎧"}.</p> */}
                 <p>
                   {t.p6} {" "}
                   <a href="mailto:ahuijr@gmail.com" rel="noopener noreferrer" target="_blank">{t.link}</a> {" "}
                   {t.p7} {" "}
                   <a href="https://twitter.com/intent/tweet?text=Hi%20@itsmeahui%21" rel="noopener noreferrer" target="_blank" className="__Link">{t.sayHi}</a>
                 </p>
-              ) : (
-                <p>
-                  {t.p6} {" "}
-                  <a href="https://twitter.com/intent/tweet?text=Hi%20@itsmeahui%21" rel="noopener noreferrer" target="_blank" className="__Link">{t.sayHi}</a>
-                </p>
-              )}
             </div>
-    
             <StyledFooter>
               <div className="__wrapper">
                 <div className="__menu">
                   <a href="mailto:ahuijr@gmail.com" rel="noopener noreferrer" target="_blank">Email</a>
                   <a href="https://read.cv/ahuizotl" rel="noopener noreferrer" target="_blank">CV</a>
-                  <a href="https://www.linkedin.com/in/ahui-vargas" rel="noopener noreferrer" target="_blank">LinkedIn</a>
+                  <a href="https://www.linkedin.com/in/ahuivargas" rel="noopener noreferrer" target="_blank">LinkedIn</a>
                   <a href="https://github.com/AhuiVargas/" rel="noopener noreferrer" target="_blank">GitHub</a>
                   {/* <a href="https://www.codewars.com/users/Ahuizotl" rel="noopener noreferrer" target="_blank">CodeWars</a> */}
                   <a href="https://twitter.com/itsmeahui" rel="noopener noreferrer" target="_blank">Twitter</a>
