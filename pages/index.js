@@ -173,7 +173,6 @@ const StyledNav = styled.div`
 
     .__LinkGroup {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
       gap: 1rem;
       margin: 1rem 0px;
 
@@ -345,21 +344,13 @@ const Home = () => {
                 <a href="https://ironhack.com/" rel="noopener noreferrer" target="_blank" className="__Link">{"IronHack"}</a> {" "}
                 {t.p5} {" "}<strong>{t.strong2}</strong>.
               </p>
-              {locale === 'es' ? (
                 <p>
                   {t.p6} {" "}
                   <a href="mailto:ahuijr@gmail.com" rel="noopener noreferrer" target="_blank">{t.link}</a> {" "}
                   {t.p7} {" "}
-                  <a href="https://twitter.com/intent/tweet?text=Hi%20@itsmeahui%21" rel="noopener noreferrer" target="_blank" className="__Link">{t.sayHi}</a>
+                  <a href="https://twitter.com/intent/tweet?text=Hi%20@itsmeahui%21" rel="noopener noreferrer" target="_blank" className="__Link">{t.sayHi}</a>.
                 </p>
-              ) : (
-                <p>
-                  {t.p6} {" "}
-                  <a href="https://twitter.com/intent/tweet?text=Hi%20@itsmeahui%21" rel="noopener noreferrer" target="_blank" className="__Link">{t.sayHi}</a>
-                </p>
-              )}
             </div>
-    
             <StyledFooter>
               <div className="__wrapper">
                 <div className="__menu">

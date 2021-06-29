@@ -10,5 +10,7 @@ export default {
   p5: "and got a Certificate for the",
   strong2: "Fullstack Web Development bootcamp 💻",
   p6: "I hate working alone, so please",
+  link: "contact me",
+  p7: "if you are looking for collaborators or freelance work. It's ok if you only",
   sayHi: "say hi. ♥️"
 };
