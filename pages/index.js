@@ -337,7 +337,7 @@ const Home = () => {
                 {t.p2} {" "}
                 <a href="https://kingtide.com/" rel="noopener noreferrer" target="_blank" className="__Link">{"King Tide"}</a> {" "}
                 {t.p3} {" "}
-                <a href="https://rappi.com.mx/" rel="noopener noreferrer" target="_blank" className="__Link">{"Rappi"}</a>.
+                {/* <a href="https://rappi.com.mx/" rel="noopener noreferrer" target="_blank" className="__Link">{"Rappi"}</a>. */}
               </p>
               <p>
                 {t.p4} {" "}
@@ -356,7 +356,7 @@ const Home = () => {
                 <div className="__menu">
                   <a href="mailto:ahuijr@gmail.com" rel="noopener noreferrer" target="_blank">Email</a>
                   <a href="https://read.cv/ahuizotl" rel="noopener noreferrer" target="_blank">CV</a>
-                  <a href="https://www.linkedin.com/in/ahui-vargas" rel="noopener noreferrer" target="_blank">LinkedIn</a>
+                  <a href="https://www.linkedin.com/in/ahuivargas" rel="noopener noreferrer" target="_blank">LinkedIn</a>
                   <a href="https://github.com/AhuiVargas/" rel="noopener noreferrer" target="_blank">GitHub</a>
                   {/* <a href="https://www.codewars.com/users/Ahuizotl" rel="noopener noreferrer" target="_blank">CodeWars</a> */}
                   <a href="https://twitter.com/itsmeahui" rel="noopener noreferrer" target="_blank">Twitter</a>
