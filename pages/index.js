@@ -344,13 +344,11 @@ const Home = () => {
                 <a href="https://ironhack.com/" rel="noopener noreferrer" target="_blank" className="__Link">{"IronHack"}</a> {" "}
                 {t.p5} {" "}<strong>{t.strong2}</strong>.
               </p>
-              {/* <p>{"I have currently two years worth of experience, building happy projects for happy people 😄. And I mean to keep doing so"}.</p>
-              <p>{"My hobbies include exploring cities in roller skates, mountains on a bicycle and hearts with music 🎧"}.</p> */}
                 <p>
                   {t.p6} {" "}
                   <a href="mailto:ahuijr@gmail.com" rel="noopener noreferrer" target="_blank">{t.link}</a> {" "}
                   {t.p7} {" "}
-                  <a href="https://twitter.com/intent/tweet?text=Hi%20@itsmeahui%21" rel="noopener noreferrer" target="_blank" className="__Link">{t.sayHi}</a>
+                  <a href="https://twitter.com/intent/tweet?text=Hi%20@itsmeahui%21" rel="noopener noreferrer" target="_blank" className="__Link">{t.sayHi}</a>.
                 </p>
             </div>
             <StyledFooter>
