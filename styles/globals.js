@@ -12,17 +12,17 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: inherit;
   }
   ::selection {
-    background-color: ${props => props.theme.bg.primary};
-    color: ${props => props.theme.text.primary};
+    background-color: ${(props) => props.theme.bg.primary};
+    color: ${(props) => props.theme.text.primary};
   }
   body {
     margin: 0;
     padding: 0;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    font-family: ${props => props.theme.fonts.inter};
-    color: ${props => props.theme.text.primary};
-    background-color: ${props => props.theme.bg.primary};
+    font-family: ${(props) => props.theme.fonts.inter};
+    color: ${(props) => props.theme.text.primary};
+    background-color: ${(props) => props.theme.bg.primary};
   }
 
   h1 {
@@ -40,7 +40,9 @@ const GlobalStyle = createGlobalStyle`
   h2 {
     font-size: 2rem;
     line-height: 1.3;
-    color: ${props => props.theme.text.secondary};
+    color: transparent;
+    background-image: linear-gradient(263deg,#ff8c38 16.7%,#72c6e1 95.73%);
+    background-clip: text;
     font-weight: 800;
     margin-top: 0;
     ${media.bp700`
@@ -50,8 +52,12 @@ const GlobalStyle = createGlobalStyle`
 
   a {
     text-decoration: none;
-    transition: ${props => props.theme.transition};
-    color: ${props => props.theme.text.secondary};
+    transition: ${(props) => props.theme.transition};
+        color: transparent;
+
+    background-image: linear-gradient(263deg,#ff8c38 16.7%,#72c6e1 95.73%);
+        background-clip: text;
+
     display: inline-block;
     font-size: 1.7rem;
     font-weight: 700;

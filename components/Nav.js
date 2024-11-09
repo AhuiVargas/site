@@ -6,6 +6,7 @@ import { Cross as Hamburger } from 'hamburger-react';
 import { mixins, media } from '../styles';
 import en from "../locales/en";
 import es from "../locales/es";
+import HolidayAnimation from "./HolidayAnimation";
 
 const StyledNav = styled.div`
   padding: 2rem;
@@ -214,6 +215,7 @@ const Nav = () => {
         </div>
       </div>
     </StyledNav>
+    <HolidayAnimation />
   </Fragment>
   );
 

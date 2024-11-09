@@ -28,16 +28,18 @@ const HeroHeaderStyled = styled.section`
           &:hover {
             font-weight: 800;
             word-break: break-all;
-            background-color: ${props => props.theme.bg.tertiary};
-            color: ${props => props.theme.text.contrast};
+            background-image: linear-gradient(263deg,#ff8c38 16.7%,#72c6e1 95.73%);
+            background-clip: padding-box;
+            color: ${(props) => props.theme.text.contrast};
             padding: 0px 0.25rem;
           }
           ${media.bp1024`
             font-size: 1.2rem;
             font-weight: 800;
             word-break: break-all;
-            background-color: ${props => props.theme.bg.tertiary};
-            color: ${props => props.theme.text.contrast};
+            background-color: linear-gradient(263deg,#ff8c38 16.7%,#72c6e1 95.73%);
+            background-clip: padding-box;
+            color: ${(props) => props.theme.text.contrast};
             padding: 0px 0.25rem;
             margin: 0px;
           `}
@@ -46,7 +48,7 @@ const HeroHeaderStyled = styled.section`
 
       .__MemojiContainer {
         ${mixins.flexEnd}
-        margin-bottom: 3rem;  
+        margin-bottom: 3rem;
         ${media.bp1024`
           display: block
         `}
@@ -57,15 +59,24 @@ const HeroHeaderStyled = styled.section`
           ${media.bp1024`
             margin: 0px auto;
           `}
-    
+
           .__Title {
             margin-bottom: 0.25rem;
             font-size: 3rem;
           }
-    
+
           .__Subtitle {
             font-size: 2rem;
             line-height: 1.3;
+            color: transparent;
+            background-image: linear-gradient(
+              to right,
+              #a5b3ae 0%,
+              #fdab75 25%,
+              #fe8c38 75%,
+              #72c6e1 100%
+            );
+            background-clip: text;
           }
         }
       }
