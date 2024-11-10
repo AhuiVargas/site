@@ -1,7 +1,9 @@
 import React, { Fragment } from "react";
+import Image from 'next/image'
 import router, { useRouter } from "next/router";
 import styled from "styled-components";
 import { mixins, media } from '../styles';
+import memoji from '../styles/assets/memoji.png'
 
 import en from "../locales/en";
 import es from "../locales/es";
@@ -94,9 +96,9 @@ const About = ({}) => {
         <div className="__HeroContent">
           <div className="__Wrapper">
             <div className="__MemojiContainer">
-              {/* <div className="__Memoji">
-                <Image src={memoji} alt="memoji image"></Image>
-              </div> */}
+              <div className="__Memoji">
+                <Image src={memoji} width={300} height={300} alt="memoji image"></Image>
+              </div>
               <div>
                 <h1 className='__Title'>{t.title}</h1>
                 <h2 className='__Subtitle'>{t.subtitle}</h2>
