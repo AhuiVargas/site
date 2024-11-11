@@ -100,7 +100,7 @@ const Description = styled.p`
     opacity: 1; /* Fade in the gradient background */
   }
 
-  `;
+`;
 
 const RightColumn = styled.div`
   flex: 1;
