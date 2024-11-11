@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "gsap": "^3.12.5",
     "hamburger-react": "^2.4.1",
     "next": "11.0.0",
     "react": "17.0.2",

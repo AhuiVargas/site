@@ -9,12 +9,12 @@ const light = {
     primary: '#0f1419',  // blackFront
     secondary: '#4677a8', // blueFont
     contrast: '#eeeeee',  // offWhite
-    anchor: '#eeeeee'
+    anchor: '#0f1419'
   },
   rgba: {
     fullscreen: 'rgba(0, 0, 0, 0.25)',
-    menu: 'rgba(0, 0, 0, 0.75)',
-    active: 'rgba(0, 0, 0, 0.5)',
+    menu: 'rgba(255, 255, 255, 0.85)',
+    active: 'rgba(255, 255, 255, 0.65)',
   },
 }
 
@@ -28,13 +28,13 @@ const dark = {
   text: {
     primary: '#eeeeee',  // offWhite
     secondary: '#4677a8', // blueFront
-    contrast: '#eeeeee',  // offWhite
-    anchor: '#0f1419',  // blackFront
+    contrast: '#0f1419',  // offWhite
+    anchor: '#eeeeee',  // blackFront
   },
   rgba: {
     fullscreen: 'rgba(0, 0, 0, 0.25)',
-    menu: 'rgba(255, 255, 255, 0.85)',
-    active: 'rgba(255, 255, 255, 0.65)',
+    menu: 'rgba(0, 0, 0, 0.75)',
+    active: 'rgba(0, 0, 0, 0.5)',
   },
 }
 
