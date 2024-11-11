@@ -16,10 +16,8 @@ const StyledNav = styled.div`
   left: 0px;
   background-color: transparent;
   z-index: 200;
-  border-radius: 
 
   .__Wrapper {
-    max-width: 74rem;
     background-color: transparent;
   }
 
@@ -33,9 +31,9 @@ const StyledNav = styled.div`
     height: 100vh;
     background-color: rgba(0, 0, 0, 0.25);
     backdrop-filter: blur(16px);
+    transition: backdrop-filter 0.1s ease-in-out; /* Smooth blur transition */
   }
 
-  
   .__Menu {
     ${mixins.flexCenterBetween};
     overflow: hidden;
@@ -45,7 +43,6 @@ const StyledNav = styled.div`
     background-color: ${props => props.theme.rgba.menu};
 
     .__SwitchDesktop {
-      
       ${media.bp1024`
         display: none;
       `}
@@ -86,11 +83,9 @@ const StyledNav = styled.div`
         color: ${props => props.theme.text.anchor};
       }
     }
-
   }
 
   .__Menu.active {
-    // background-color: ${props => props.theme.rgba.active};
     border-radius: 0.5rem;
     backdrop-filter: blur(16px);
     transition: all 0.3s ease-in-out 0s;
@@ -150,6 +145,7 @@ const StyledNav = styled.div`
   }
 `;
 
+
 const Nav = () => {
   const [isOpen, setIsOpen] = React.useState(false);
   const [isScrolling, setIsScrolling] = React.useState(false)
@@ -191,7 +187,7 @@ const Nav = () => {
             </select>
             </div>
             <div className="__BurgerBox">
-              <Hamburger toggled={isOpen} toggle={setIsOpen} duration={0.0} size={25}/>
+              <Hamburger toggled={isOpen} toggle={setIsOpen} duration={0.5} size={25}/>
             </div>
           </nav>
           {isOpen ? (

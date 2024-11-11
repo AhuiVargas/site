@@ -7,7 +7,6 @@ const SectionContainer = styled.section`
   position: relative;
   flex-direction: column;
   width: 100vw;
-  min-height: 95vh;
   padding: 1rem;
   justify-content: center;
   align-items: center;

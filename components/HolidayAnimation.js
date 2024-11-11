@@ -26,7 +26,6 @@ const AnimationContainer = styled.div`
   align-items: center;
   justify-content: center;
   z-index: 3;
-  animation: ${fadeIn} 0.5s ease-out; /* Apply fade-in animation */
 
   /* Blurred edge effect */
   border-radius: 10px;
@@ -38,7 +37,7 @@ const AnimationContainer = styled.div`
   `}
 
   ${media.bp700`
-    max-width: 91%;
+    max-width: 87%;
   `}
 
   ${media.bp400`
