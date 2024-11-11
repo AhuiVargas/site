@@ -98,21 +98,21 @@ const Home = () => {
         <div ref={(el) => (sectionRefs.current[1] = el)}>
           {isMobile ? (
             <SectionMobile
-              titleImageSrc="/Rappi.png"
-              subtitle="Frontend Engineer"
-              description="This is a description of the project, detailing the main points and outcomes."
-              ctaText="See Case Study"
-              ctaLink="/case-study"
-              imageSrc="/RappiSS.png"
-              backgroundImage="/RappiBG.png"
+            titleImageSrc="/Rappi.png"
+            subtitle="Unicorn startup fintech/delivery"
+            description="Tech stack: Angular, RXJS, NGRX, Typescript, GraphQL, Material Components, Single SPA, HTML, CSS"
+            ctaText="SEE COMPANY SITE"
+            ctaLink="https://www.rappipay.com/"
+            imageSrc="/RappiSS.png"
+            backgroundImage="/RappiBG.png"
             />
           ) : (
             <Section
               titleImageSrc="/Rappi.png"
-              subtitle="Frontend Engineer"
-              description="This is a description of the project, detailing the main points and outcomes."
-              ctaText="See Case Study"
-              ctaLink="/case-study"
+              subtitle="Unicorn startup fintech/delivery"
+              description="Tech stack: Angular, RXJS, NGRX, Typescript, GraphQL, Material Components, Single SPA, HTML, CSS"
+              ctaText="SEE COMPANY SITE"
+              ctaLink="https://www.rappipay.com/"
               imageSrc="/RappiSS.png"
               backgroundImage="/RappiBG.png"
             />
@@ -122,21 +122,21 @@ const Home = () => {
         <div ref={(el) => (sectionRefs.current[2] = el)}>
           {isMobile ? (
             <SectionMobile
-              titleImageSrc="/Kapital.svg"
-              subtitle="Frontend Engineer"
-              description="This is a description of the project, detailing the main points and outcomes."
-              ctaText="See Case Study"
-              ctaLink="/case-study"
-              imageSrc="/KapitalSS.png"
-              backgroundImage="/KapitalBG.png"
+            titleImageSrc="/Kapital.svg"
+            subtitle="Fintech, AI, banking and internal tooling"
+            description="Tech stack: NextJS, Typescript, Redux, React, Tailwind, Git, Bitbucket, REST"
+            ctaText="SEE COMPANY SITE"
+            ctaLink="https://www.kapital.cc/productos/kapital-ai"
+            imageSrc="/KapitalSS.png"
+            backgroundImage="/KapitalBG.png"
             />
           ) : (
             <Section
               titleImageSrc="/Kapital.svg"
-              subtitle="Frontend Engineer"
-              description="This is a description of the project, detailing the main points and outcomes."
-              ctaText="See Case Study"
-              ctaLink="/case-study"
+              subtitle="Fintech, AI, banking and internal tooling"
+              description="Tech stack: NextJS, Typescript, Redux, React, Tailwind, Git, Bitbucket, REST"
+              ctaText="SEE COMPANY SITE"
+              ctaLink="https://www.kapital.cc/productos/kapital-ai"
               imageSrc="/KapitalSS.png"
               backgroundImage="/KapitalBG.png"
             />
@@ -147,22 +147,22 @@ const Home = () => {
           {isMobile ? (
             <SectionMobile
               titleImageSrc="/KingTide.svg"
-              subtitle="Frontend Engineer"
-              description="This is a description of the project, detailing the main points and outcomes."
-              ctaText="See Case Study"
-              ctaLink="/case-study"
+              subtitle="KT Venture capital studio"
+              description="Tech stack: React, NextJS, Styled Components, GraphQL, REST, HTML, CSS."
+              ctaText="SEE COMPANY SITE"
+              ctaLink="https://www.kingtide.com/"
               imageSrc="/KingTideSS.png"
               backgroundImage="/KingTideBG.png"
             />
           ) : (
             <Section
-              titleImageSrc="/KingTide.svg"
-              subtitle="Frontend Engineer"
-              description="This is a description of the project, detailing the main points and outcomes."
-              ctaText="See Case Study"
-              ctaLink="/case-study"
-              imageSrc="/KingTideSS.png"
-              backgroundImage="/KingTideBG.png"
+            titleImageSrc="/KingTide.svg"
+            subtitle="KT Venture capital studio"
+            description="Tech stack: React, NextJS, Styled Components, GraphQL, REST, HTML, CSS."
+            ctaText="SEE COMPANY SITE"
+            ctaLink="https://www.kingtide.com/"
+            imageSrc="/KingTideSS.png"
+            backgroundImage="/KingTideBG.png"
             />
           )}
         </div>

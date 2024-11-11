@@ -91,7 +91,7 @@ const SectionMobile = ({ titleImageSrc, subtitle, description, ctaText, ctaLink,
           <TitleImage src={titleImageSrc} alt="Title Image" />
           <Subtitle>{subtitle}</Subtitle>
           <Description>{description}</Description>
-          <CTAButton href={ctaLink}>{ctaText}</CTAButton>
+          <CTAButton href={ctaLink} target="_blank" rel="noopener noreferrer">{ctaText}</CTAButton>
         </LeftColumn>
       </CardContainer>
     </SectionContainer>

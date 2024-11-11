@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import { media } from "../styles";
 
 const SectionContainer = styled.section`
   display: flex;
@@ -27,21 +26,21 @@ const CardContainer = styled.div`
   background-repeat: no-repeat;
   border-radius: 3.125rem;
   padding: 5rem;
-  z-index: 10; // Ensures CardContainer stays on top
+  z-index: 10;
 `;
 
 const LeftColumn = styled.div`
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 1.3rem;
 `;
 
 const TitleImage = styled.img`
   max-width: 200px;
   width: 100%;
   height: auto;
-  max-height: 8rem;
+  max-height: 7rem;
   object-fit: contain;
 `;
 
@@ -51,6 +50,7 @@ const Subtitle = styled.h3`
     font-size: 2rem;
     line-height: 2.625rem;
     color: #fff;
+    margin: 0;
 `;
 
 const Description = styled.p`
@@ -61,17 +61,46 @@ const Description = styled.p`
     text-align: left;
     color: #fff;
     max-width: 22.375rem;
+    margin: 0;
 `;
 
-const CTAButton = styled.a`
+  const CTAButton = styled.a`
   align-self: start;
-  padding: .5rem .3rem;
+  padding: 1rem;
+  align-self: start;
+  padding: 1rem;
   border-radius: 0.5rem;
   font-weight: 200;
-  font-size: 1.5rem;
+  font-size: 1.1rem;
   color: #fff;
   border: 1px solid #fff;
-`;
+  background: transparent;
+  position: relative;
+  overflow: hidden;
+  transition: color 0.5s ease; /* Smooth color transition */
+
+  &:hover {
+    color: #fff;
+  }
+
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(263deg, #ff8c38 16.7%, #72c6e1 95.73%);
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.6s ease; /* Smooth opacity transition */
+  }
+
+  &:hover:before {
+    opacity: 1; /* Fade in the gradient background */
+  }
+
+  `;
 
 const RightColumn = styled.div`
   flex: 1;
@@ -97,6 +126,11 @@ const Image = styled.img`
   }
 `;
 
+const SeparatorImage = styled.img`
+  max-width: 100px;
+  height: auto;
+`;
+
 const Section = ({ titleImageSrc, subtitle, description, ctaText, ctaLink, imageSrc, backgroundImage }) => {
   return (
     <SectionContainer>
@@ -104,11 +138,12 @@ const Section = ({ titleImageSrc, subtitle, description, ctaText, ctaLink, image
         <LeftColumn>
           <TitleImage src={titleImageSrc} alt="Title Image" />
           <Subtitle>{subtitle}</Subtitle>
+          <SeparatorImage src="/separator.svg" />
           <Description>{description}</Description>
-          <CTAButton href={ctaLink}>{ctaText}</CTAButton>
+          <CTAButton href={ctaLink} target="_blank" rel="noopener noreferrer">{ctaText}</CTAButton>
         </LeftColumn>
         <RightColumn>
-          <Image src={imageSrc} alt="Section Image" />
+          <Image src={imageSrc} alt="Section Image"/>
         </RightColumn>
       </CardContainer>
     </SectionContainer>
