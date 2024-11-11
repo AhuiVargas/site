@@ -1,6 +1,5 @@
-// components/HolidayAnimation.js
 import styled, { keyframes } from 'styled-components';
-import { mixins, media } from '../styles';
+import { media } from '../styles';
 
 const fadeIn = keyframes`
   from {
@@ -14,7 +13,7 @@ const fadeIn = keyframes`
 `;
 
 const AnimationContainer = styled.div`
-  position: fixed;
+  position: ${({ isOpen }) => (isOpen ? 'fixed' : 'absolute')}; /* Conditionally set position */
   top: 14px;
   right: 0;
   left: 0;
@@ -22,37 +21,33 @@ const AnimationContainer = styled.div`
   max-width: 96.5vw;
   height: 3.5rem; /* Initial flexible height */
   margin: 1rem auto;
-  background: linear-gradient(263deg,#ff8c38 16.7%,#72c6e1 95.73%);
+  background: linear-gradient(263deg, #ff8c38 16.7%, #72c6e1 95.73%);
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 3;
+  animation: ${fadeIn} 0.5s ease-out; /* Apply fade-in animation */
 
   /* Blurred edge effect */
   border-radius: 10px;
 
   /* Responsive adjustments */
-
   ${media.bp1024`
-  width: 94.5%;
-  height: 3.5rem; /* Initial flexible height */
+    width: 94.5%;
+    height: 3.5rem;
   `}
 
   ${media.bp700`
-  max-width: 91%;
+    max-width: 91%;
   `}
 
   ${media.bp400`
-  width: 86%;
+    width: 86%;
   `}
 `;
 
-
-
-
-
-const HolidayAnimation = ({ children }) => {
-  return <AnimationContainer>{children}</AnimationContainer>;
+const HolidayAnimation = ({ children, isOpen }) => {
+  return <AnimationContainer isOpen={isOpen}>{children}</AnimationContainer>;
 };
 
 export default HolidayAnimation;

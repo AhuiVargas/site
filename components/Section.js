@@ -1,4 +1,3 @@
-// Section.js
 import React from "react";
 import styled from "styled-components";
 
@@ -7,7 +6,7 @@ const SectionContainer = styled.section`
   position: relative;
   flex-direction: row;
   width: 100vw;
-  min-height: 100vh;
+  min-height: 95vh;
   padding: 3rem 2rem;
   justify-content: center;
   align-items: center;
@@ -16,6 +15,7 @@ const SectionContainer = styled.section`
 
 const CardContainer = styled.div`
   display: flex;
+  position: absolute;
   flex-direction: row;
   width: 100%;
   max-width: 42rem;
@@ -26,7 +26,7 @@ const CardContainer = styled.div`
   background-repeat: no-repeat;
   border-radius: 3.125rem;
   padding: 5rem;
-  max-width: 
+  z-index: 10; // Ensures CardContainer stays on top
 `;
 
 const LeftColumn = styled.div`
@@ -34,37 +34,42 @@ const LeftColumn = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  padding: 1rem;
 `;
 
 const TitleImage = styled.img`
   max-width: 200px;
   width: 100%;
   height: auto;
-  max-height: 11rem;
+  max-height: 8rem;
   object-fit: contain;
 `;
 
 const Subtitle = styled.h3`
-  font-size: 1.5rem;
-  font-weight: normal;
-  color: gray;
-  margin: 0;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 2rem;
+    line-height: 2.625rem;
+    color: #fff;
 `;
 
 const Description = styled.p`
-  font-size: 1rem;
-  line-height: 1.5;
+    font-size: 1.25rem;
+    font-weight: 400;
+    line-height: 1.625rem;
+    letter-spacing: 0;
+    text-align: left;
+    color: #fff;
+    max-width: 22.375rem;
 `;
 
 const CTAButton = styled.a`
   align-self: start;
-  padding: 0.75rem 1.5rem;
-  background-color: #333;
-  color: white;
+  padding: .5rem .3rem;
   border-radius: 0.5rem;
-  text-decoration: none;
-  font-weight: bold;
+  font-weight: 200;
+  font-size: 1.5rem;
+  color: #fff;
+  border: 1px solid #fff;
 `;
 
 const RightColumn = styled.div`

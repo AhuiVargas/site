@@ -29,12 +29,12 @@ const dark = {
     primary: '#eeeeee',  // offWhite
     secondary: '#4677a8', // blueFront
     contrast: '#0f1419',  // offWhite
-    anchor: '#0f1419',  // blackFront
+    anchor: '#eeeeee',  // blackFront
   },
   rgba: {
     fullscreen: 'rgba(0, 0, 0, 0.25)',
-    menu: 'rgba(255, 255, 255, 0.85)',
-    active: 'rgba(255, 255, 255, 0.65)',
+    menu: 'rgba(0, 0, 0, 0.75)',
+    active: 'rgba(0, 0, 0, 0.5)',
   },
 }
 

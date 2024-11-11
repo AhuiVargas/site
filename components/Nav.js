@@ -10,7 +10,7 @@ import HolidayAnimation from "./HolidayAnimation";
 
 const StyledNav = styled.div`
   padding: 2rem;
-  position: fixed;
+  position: absolute;
   top: 0px;
   right: 0px;
   left: 0px;
@@ -90,7 +90,7 @@ const StyledNav = styled.div`
   }
 
   .__Menu.active {
-    background-color: ${props => props.theme.rgba.active};
+    // background-color: ${props => props.theme.rgba.active};
     border-radius: 0.5rem;
     backdrop-filter: blur(16px);
     transition: all 0.3s ease-in-out 0s;
@@ -215,7 +215,7 @@ const Nav = () => {
         </div>
       </div>
     </StyledNav>
-    <HolidayAnimation />
+    <HolidayAnimation isOpen={isOpen} />
   </Fragment>
   );
 
