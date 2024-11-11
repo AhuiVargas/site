@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
-import { Nav, Social, About, Section, SectionMobile } from "../components";  // Import SectionMobile
+import { Nav, Social, About, Section, SectionMobile, WorkCard } from "../components";  // Import SectionMobile
 import gsap from "gsap";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
 
@@ -91,9 +91,10 @@ const Home = () => {
         <Nav />
 
         {/* Sections with animated scroll */}
-        {/* <div ref={(el) => (sectionRefs.current[0] = el)}> */}
           <About />
-        {/* </div> */}
+        <div ref={(el) => (sectionRefs.current[0] = el)}>
+          <WorkCard />
+        </div>
 
         <div ref={(el) => (sectionRefs.current[1] = el)}>
           {isMobile ? (

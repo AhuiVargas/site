@@ -21,7 +21,7 @@ const HeroHeaderStyled = styled.section`
     .__Wrapper {
       width: 100%;
       max-width: 74rem;
-      margin: 0px auto;
+      margin: 0px auto 5rem;
       padding: 0px 2rem;
 
       .__Content {
