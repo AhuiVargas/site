@@ -12,7 +12,6 @@ import es from "../locales/es";
 const HeroHeaderStyled = styled.section`
   position: relative;
   padding-top: 8rem;
-  padding-bottom: 4rem;
   overflow: visible;
 
   .__HeroContent {
