@@ -62,11 +62,11 @@ const Social = () => (
       <div className="__wrapper">
         <div className="__menu">
           <a href="mailto:ahuijr@gmail.com" rel="noopener noreferrer" target="_blank">Email</a>
-          <a href="https://read.cv/ahuizotl" rel="noopener noreferrer" target="_blank">CV</a>
-          <a href="https://www.linkedin.com/in/ahuivargas" rel="noopener noreferrer" target="_blank">LinkedIn</a>
+          <a href="/Ahuizotl-resume-2024.pdf" rel="noopener noreferrer" target="_blank">CV</a>
+          <a href="https://www.linkedin.com/in/ahui-vargas/" rel="noopener noreferrer" target="_blank">LinkedIn</a>
           <a href="https://github.com/AhuiVargas/" rel="noopener noreferrer" target="_blank">GitHub</a>
-          <a href="https://twitter.com/itsmeahui" rel="noopener noreferrer" target="_blank">Twitter</a>
-          <a href="https://www.instagram.com/ahuivargas/" rel="noopener noreferrer" target="_blank">Instagram</a>
+          {/* <a href="https://twitter.com/itsmeahui" rel="noopener noreferrer" target="_blank">Twitter</a>
+          <a href="https://www.instagram.com/ahuivargas/" rel="noopener noreferrer" target="_blank">Instagram</a> */}
         </div>
       </div>
     </StyledFooter>
