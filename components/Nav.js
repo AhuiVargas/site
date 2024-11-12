@@ -1,9 +1,9 @@
 import React, { Fragment } from "react";
 import router, { useRouter } from "next/router";
 import styled from "styled-components";
-import { Cross as Hamburger } from 'hamburger-react';
+import { Cross as Hamburger } from "hamburger-react";
 
-import { mixins, media } from '../styles';
+import { mixins, media } from "../styles";
 import en from "../locales/en";
 import es from "../locales/es";
 import HolidayAnimation from "./HolidayAnimation";
@@ -31,7 +31,7 @@ const StyledNav = styled.div`
     height: 100vh;
     background-color: rgba(0, 0, 0, 0.25);
     backdrop-filter: blur(16px);
-    transition: backdrop-filter 0.1s ease-in-out; /* Smooth blur transition */
+    transition: backdrop-filter 0.1s ease-in-out;
   }
 
   .__Menu {
@@ -40,17 +40,16 @@ const StyledNav = styled.div`
     border-radius: 0.5rem;
     backdrop-filter: blur(16px);
     transition: all 0.3s ease-in-out 0s;
-    background-color: ${props => props.theme.rgba.menu};
+    background-color: ${(props) => props.theme.rgba.menu};
 
     .__SwitchDesktop {
       ${media.bp1024`
         display: none;
       `}
-
       .__LangSwitch {
         display: block;
         padding: 1rem;
-        color: ${props => props.theme.text.anchor};
+        color: ${(props) => props.theme.text.anchor};
         background: transparent;
         border: transparent;
         cursor: pointer;
@@ -67,7 +66,7 @@ const StyledNav = styled.div`
 
     .__AnchorLink {
       padding: 1rem 2rem;
-      color: ${props => props.theme.text.anchor};
+      color: ${(props) => props.theme.text.anchor};
       font-size: 1rem;
       font-weight: 400;
       cursor: default;
@@ -80,7 +79,7 @@ const StyledNav = styled.div`
       `}
 
       .hamburger-react {
-        color: ${props => props.theme.text.anchor};
+        color: ${(props) => props.theme.text.anchor};
       }
     }
   }
@@ -90,22 +89,23 @@ const StyledNav = styled.div`
     backdrop-filter: blur(16px);
     transition: all 0.3s ease-in-out 0s;
     &:hover {
-      background-color: ${props => props.theme.rgba.menu};
+      background-color: ${(props) => props.theme.rgba.menu};
     }
   }
 
   .__MenuMobile {
 
     .__LinkGroup {
+      margin: 1rem 0px;
       display: grid;
       gap: 1rem;
-      margin: 1rem 0px;
 
       .__SwitchMobile {
         ${mixins.flexCenter};
-        color: ${props => props.theme.text.contrast};
+        flex-direction: column;
+        color: ${(props) => props.theme.text.contrast};
         text-align: center;
-        background-color: ${props => props.theme.rgba.active};
+        background-color: ${(props) => props.theme.rgba.active};
         border-radius: 0.5rem;
         cursor: pointer;
         backdrop-filter: blur(16px);
@@ -113,7 +113,7 @@ const StyledNav = styled.div`
         .__LangSwitch {
           display: block;
           padding: 1rem;
-          color: ${props => props.theme.text.anchor};
+          color: ${(props) => props.theme.text.anchor};
           background: transparent;
           border: transparent;
           cursor: pointer;
@@ -130,7 +130,7 @@ const StyledNav = styled.div`
         .__ThemeSwitch {
           ${mixins.flexEnd};
           padding: 0.5rem 1rem;
-          color: ${props => props.theme.text.anchor};
+          color: ${(props) => props.theme.text.anchor};
           background: transparent;
           border: transparent;
           cursor: pointer;
@@ -141,80 +141,132 @@ const StyledNav = styled.div`
           }
         }
       }
-    }
-  }
-`;
-
+      .footerLinks {
+        display: grid;
+        gap: 1rem;
+        background-color: ${(props) => props.theme.rgba.active};
+      }
+      a {
+        text-align: center;
+        display: block;
+        padding: 1rem;
+        color: ${(props) => props.theme.text.primary};
+        background: ${(props) => props.theme.rgba.active};
+        border-radius: 0.5rem;
+        font-size: 1.2rem;
+        font-weight: 400;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        &:hover {
+          color: ${(props) => props.theme.text.contrast};
+          background: linear-gradient(263deg, #ff8c38 16.7%, #72c6e1 95.73%);
+        }
+      }
+  `;
 
 const Nav = () => {
   const [isOpen, setIsOpen] = React.useState(false);
-  const [isScrolling, setIsScrolling] = React.useState(false)
+  const [isScrolling, setIsScrolling] = React.useState(false);
   const { locale } = useRouter();
-  const t = locale === 'en' ? en : es;
+  const t = locale === "en" ? en : es;
 
   React.useEffect(() => {
     const handleScroll = () => {
-      if(window.scrollY >= 20) {
+      if (window.scrollY >= 20) {
         setIsScrolling(true);
       } else {
         setIsScrolling(false);
       }
-    }
-    window.addEventListener('scroll', handleScroll);
-  }, [])
+    };
+    window.addEventListener("scroll", handleScroll);
+  }, []);
 
   const changeLanguage = (e) => {
     const locale = e.target.value;
     router.push(router.pathname, router.asPath, { locale, scroll: false }),
-    setIsOpen(false);
-  }
+      setIsOpen(false);
+  };
 
   return (
-  <Fragment>
-    <StyledNav>
-      <div className={isOpen ? "fullscreen" : null}>
-        <div className="__Wrapper">
-          <nav className={isScrolling && !isOpen ? "__Menu active" : "__Menu"}>
-            <a className="__AnchorLink">Ahuizotl Vargas</a>
-            <div className="__SwitchDesktop">
-            <select 
-              onChange={changeLanguage}
-              defaultValue={locale}
-              className="__LangSwitch"
+    <Fragment>
+      <StyledNav>
+        <div className={isOpen ? "fullscreen" : null}>
+          <div className="__Wrapper">
+            <nav
+              className={isScrolling && !isOpen ? "__Menu active" : "__Menu"}
             >
-              <option value="en">EN</option>
-              <option value="es">ES</option>
-            </select>
-            </div>
-            <div className="__BurgerBox">
-              <Hamburger toggled={isOpen} toggle={setIsOpen} duration={0.5} size={25}/>
-            </div>
-          </nav>
-          {isOpen ? (
-            <Fragment>
-              <nav className="__MenuMobile">
-                <div className="__LinkGroup">
-                  <div className="__SwitchMobile">
-                    <select 
-                      onChange={changeLanguage}
-                      defaultValue={locale}
-                      className="__LangSwitch"
+              <a className="__AnchorLink">Ahuizotl Vargas</a>
+              <div className="__SwitchDesktop">
+                <select
+                  onChange={changeLanguage}
+                  defaultValue={locale}
+                  className="__LangSwitch"
+                >
+                  <option value="en">EN</option>
+                  <option value="es">ES</option>
+                </select>
+              </div>
+              <div className="__BurgerBox">
+                <Hamburger
+                  toggled={isOpen}
+                  toggle={setIsOpen}
+                  duration={0.5}
+                  size={25}
+                />
+              </div>
+            </nav>
+            {isOpen ? (
+              <Fragment>
+                <nav className="__MenuMobile">
+                  <div className="__LinkGroup">
+                    <div className="__SwitchMobile">
+                      <select
+                        onChange={changeLanguage}
+                        defaultValue={locale}
+                        className="__LangSwitch"
+                      >
+                        <option value="en">EN</option>
+                        <option value="es">ES</option>
+                      </select>
+                    </div>
+                    <a
+                      href="mailto:ahuijr@gmail.com"
+                      rel="noopener noreferrer"
+                      target="_blank"
                     >
-                      <option value="en">EN</option>
-                      <option value="es">ES</option>
-                    </select>
+                      Email
+                    </a>
+                    <a
+                      href="/Ahuizotl-resume-2024.pdf"
+                      rel="noopener noreferrer"
+                      target="_blank"
+                    >
+                      CV
+                    </a>
+                    <a
+                      href="https://www.linkedin.com/in/ahui-vargas/"
+                      rel="noopener noreferrer"
+                      target="_blank"
+                    >
+                      LinkedIn
+                    </a>
+                    <a
+                      href="https://github.com/AhuiVargas/"
+                      rel="noopener noreferrer"
+                      target="_blank"
+                    >
+                      GitHub
+                    </a>
                   </div>
-                </div>
-              </nav>
-            </Fragment>
-          ) : null}
+                </nav>
+              </Fragment>
+            ) : null}
+          </div>
         </div>
-      </div>
-    </StyledNav>
-    <HolidayAnimation isOpen={isOpen} />
-  </Fragment>
+      </StyledNav>
+      <HolidayAnimation isOpen={isOpen} />
+    </Fragment>
   );
-
 };
 
 export default Nav;

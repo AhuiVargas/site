@@ -1,4 +1,8 @@
 import styled from "styled-components";
+import { useRouter } from "next/router";
+
+import en from "../locales/en";
+import es from "../locales/es";
 
 const WorkCardContainer = styled.div`
   background-color: #000;
@@ -32,17 +36,20 @@ const SectionTitle = styled.h2`
 const Description = styled.p`
   color: #fff;
   font-size: 1.2rem;
-  // font-weight: 300;
   line-height: 1.6;
 `;
 
 const WorkCard = () => {
+
+  const { locale } = useRouter();
+  const t = locale === 'en' ? en : es;
+
   return (
     <>
-      <SectionTitle>{`Where I've Worked`}</SectionTitle>
+      <SectionTitle>{t.title2}</SectionTitle>
       <WorkCardContainer>
         <Description>
-          Here’s a brief overview of my professional journey, highlighting my roles and experiences that shaped my career:
+          {t.p8}
         </Description>
       </WorkCardContainer>
     </>

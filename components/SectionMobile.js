@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import { media } from "../styles";
 
 const SectionContainer = styled.section`
   display: flex;
@@ -47,6 +46,7 @@ const Subtitle = styled.h3`
   font-weight: 700;
   line-height: 2rem;
   color: #fff;
+  margin: 0;
 `;
 
 const Description = styled.p`
@@ -54,6 +54,7 @@ const Description = styled.p`
   font-weight: 400;
   line-height: 1.5rem;
   color: #fff;
+  margin: 0;
 `;
 
 const CTAButton = styled.a`
@@ -63,6 +64,8 @@ const CTAButton = styled.a`
   font-size: 1rem;
   color: #fff;
   border: 1px solid #fff;
+  text-transform: uppercase;
+  text-align: center;
 `;
 
 const RightColumn = styled.div`

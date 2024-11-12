@@ -1,12 +1,15 @@
 import React, { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
-import { Nav, Social, About, Section, SectionMobile, WorkCard } from "../components";  // Import SectionMobile
 import gsap from "gsap";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
+import { useRouter } from "next/router";
+import { Nav, Social, About, Section, SectionMobile, WorkCard } from "../components";
+
+import en from "../locales/en";
+import es from "../locales/es";
 
 gsap.registerPlugin(ScrollTrigger);
 
-// Cursor component to handle the custom cursor behavior
 const Cursor = styled.div`
   position: fixed;
   width: 37.5rem;
@@ -28,7 +31,9 @@ const Home = () => {
   const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
   const [isMobile, setIsMobile] = useState(false);
 
-  // Update cursor position on mouse move
+  const { locale } = useRouter();
+  const t = locale === 'en' ? en : es;
+
   useEffect(() => {
     const handleMouseMove = (event) => {
       setCursorPosition({
@@ -41,37 +46,36 @@ const Home = () => {
     return () => window.removeEventListener("mousemove", handleMouseMove);
   }, []);
 
-  // Detect screen width to toggle mobile layout
+
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(window.innerWidth <= 768); // Adjust the breakpoint to your preference
+      setIsMobile(window.innerWidth <= 768);
     };
 
-    handleResize(); // Initial check
+    handleResize();
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  // GSAP scroll animations for sections
   useEffect(() => {
     gsap.killTweensOf(sectionRefs.current);
   
     sectionRefs.current.forEach((section) => {
       gsap.fromTo(
         section,
-        { opacity: 0, y: 100, scale: 0.9 }, // Start with lower opacity, y offset, and smaller scale
+        { opacity: 0, y: 100, scale: 0.9 },
         {
           opacity: 1,
           y: 0,
           scale: 1,
           scrollTrigger: {
             trigger: section,
-            start: "center 100%",   // Start fade as section approaches the center
-            end: "center 10%",      // Complete fade and scale when section is centered
-            scrub: 1,               // Smooth scrub effect for more dynamic scrolling
-            markers: false,          // Optional: visualize start and end points
+            start: "center 100%",
+            end: "center 10%",
+            scrub: 1,
+            markers: false,
           },
-          ease: "power3.out",       // Add easing for a more pronounced fade and scale effect
+          ease: "power3.out",
         }
       );
     });
@@ -87,11 +91,8 @@ const Home = () => {
             left: `${cursorPosition.x}px`,
           }}
         />
-
         <Nav />
-
-        {/* Sections with animated scroll */}
-          <About />
+        <About />
         <div ref={(el) => (sectionRefs.current[0] = el)}>
           <WorkCard />
         </div>
@@ -102,7 +103,7 @@ const Home = () => {
             titleImageSrc="/Rappi.png"
             subtitle="Unicorn startup fintech/delivery"
             description="Tech stack: Angular, RXJS, NGRX, Typescript, GraphQL, Material Components, Single SPA, HTML, CSS"
-            ctaText="SEE COMPANY SITE"
+            ctaText={t.cta}
             ctaLink="https://www.rappipay.com/"
             imageSrc="/RappiSS.png"
             backgroundImage="/RappiBG.png"
@@ -112,7 +113,7 @@ const Home = () => {
               titleImageSrc="/Rappi.png"
               subtitle="Unicorn startup fintech/delivery"
               description="Tech stack: Angular, RXJS, NGRX, Typescript, GraphQL, Material Components, Single SPA, HTML, CSS"
-              ctaText="SEE COMPANY SITE"
+              ctaText={t.cta}
               ctaLink="https://www.rappipay.com/"
               imageSrc="/RappiSS.png"
               backgroundImage="/RappiBG.png"
@@ -126,7 +127,7 @@ const Home = () => {
             titleImageSrc="/Kapital.svg"
             subtitle="Fintech, AI, banking and internal tooling"
             description="Tech stack: NextJS, Typescript, Redux, React, Tailwind, Git, Bitbucket, REST"
-            ctaText="SEE COMPANY SITE"
+            ctaText={t.cta}
             ctaLink="https://www.kapital.cc/productos/kapital-ai"
             imageSrc="/KapitalSS.png"
             backgroundImage="/KapitalBG.png"
@@ -136,7 +137,7 @@ const Home = () => {
               titleImageSrc="/Kapital.svg"
               subtitle="Fintech, AI, banking and internal tooling"
               description="Tech stack: NextJS, Typescript, Redux, React, Tailwind, Git, Bitbucket, REST"
-              ctaText="SEE COMPANY SITE"
+              ctaText={t.cta}
               ctaLink="https://www.kapital.cc/productos/kapital-ai"
               imageSrc="/KapitalSS.png"
               backgroundImage="/KapitalBG.png"
@@ -150,7 +151,7 @@ const Home = () => {
               titleImageSrc="/KingTide.svg"
               subtitle="KT Venture capital studio"
               description="Tech stack: React, NextJS, Styled Components, GraphQL, REST, HTML, CSS."
-              ctaText="SEE COMPANY SITE"
+              ctaText={t.cta}
               ctaLink="https://www.kingtide.com/"
               imageSrc="/KingTideSS.png"
               backgroundImage="/KingTideBG.png"
@@ -160,7 +161,7 @@ const Home = () => {
             titleImageSrc="/KingTide.svg"
             subtitle="KT Venture capital studio"
             description="Tech stack: React, NextJS, Styled Components, GraphQL, REST, HTML, CSS."
-            ctaText="SEE COMPANY SITE"
+            ctaText={t.cta}
             ctaLink="https://www.kingtide.com/"
             imageSrc="/KingTideSS.png"
             backgroundImage="/KingTideBG.png"

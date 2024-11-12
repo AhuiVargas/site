@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 import Image from 'next/image'
-import router, { useRouter } from "next/router";
+import { useRouter } from "next/router";
 import styled from "styled-components";
 import { mixins, media } from '../styles';
 import memoji from '../styles/assets/memoji.png'
@@ -110,7 +110,6 @@ const About = ({}) => {
                 {t.p2} {" "}
                 <a href="https://kingtide.com/" rel="noopener noreferrer" target="_blank" className="__Link">{"King Tide"}</a> {" "}
                 {t.p3} {" "}
-                {/* <a href="https://rappi.com.mx/" rel="noopener noreferrer" target="_blank" className="__Link">{"Rappi"}</a>. */}
               </p>
               <p>
                 {t.p4} {" "}

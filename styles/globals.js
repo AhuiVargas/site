@@ -53,10 +53,10 @@ const GlobalStyle = createGlobalStyle`
   a {
     text-decoration: none;
     transition: ${(props) => props.theme.transition};
-        color: transparent;
+    color: transparent;
 
     background-image: linear-gradient(263deg,#ff8c38 16.7%,#72c6e1 95.73%);
-        background-clip: text;
+    background-clip: text;
 
     display: inline-block;
     font-size: 1.7rem;

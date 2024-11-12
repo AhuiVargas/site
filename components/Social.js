@@ -30,7 +30,7 @@ const StyledFooter = styled.footer`
       background: transparent;
       position: relative;
       overflow: hidden;
-      transition: color 0.5s ease; /* Smooth color transition */
+      transition: color 0.5s ease;
 
       &:hover {
         color: #fff;
@@ -46,11 +46,11 @@ const StyledFooter = styled.footer`
         background: linear-gradient(263deg, #ff8c38 16.7%, #72c6e1 95.73%);
         z-index: -1;
         opacity: 0;
-        transition: opacity 0.6s ease; /* Smooth opacity transition */
+        transition: opacity 0.6s ease;
       }
 
       &:hover:before {
-        opacity: 1; /* Fade in the gradient background */
+        opacity: 1;
       }
     }
   }
@@ -65,8 +65,6 @@ const Social = () => (
           <a href="/Ahuizotl-resume-2024.pdf" rel="noopener noreferrer" target="_blank">CV</a>
           <a href="https://www.linkedin.com/in/ahui-vargas/" rel="noopener noreferrer" target="_blank">LinkedIn</a>
           <a href="https://github.com/AhuiVargas/" rel="noopener noreferrer" target="_blank">GitHub</a>
-          {/* <a href="https://twitter.com/itsmeahui" rel="noopener noreferrer" target="_blank">Twitter</a>
-          <a href="https://www.instagram.com/ahuivargas/" rel="noopener noreferrer" target="_blank">Instagram</a> */}
         </div>
       </div>
     </StyledFooter>

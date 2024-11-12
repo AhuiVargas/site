@@ -77,7 +77,8 @@ const Description = styled.p`
   background: transparent;
   position: relative;
   overflow: hidden;
-  transition: color 0.5s ease; /* Smooth color transition */
+  transition: color 0.5s ease;
+  text-transform: uppercase;
 
   &:hover {
     color: #fff;

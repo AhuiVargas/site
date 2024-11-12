@@ -12,5 +12,8 @@ export default {
   p6: "I hate working alone, so please",
   link: "contact me",
   p7: "if you are looking for collaborators or freelance work. It's ok if you only",
-  sayHi: "say hi. ♥️"
+  sayHi: "say hi. ♥️",
+  title2: "Where I've worked",
+  p8: "Here’s a brief overview of my professional journey, highlighting my roles and experiences that shaped my career:",
+  cta: "See Company Site",
 };
