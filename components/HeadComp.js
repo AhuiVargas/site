@@ -9,7 +9,7 @@ const HeadComp = () => {
       
       <meta property="og:title" content="ahuizotl.dev" />
       <meta property="og:description" content="Web Development" />
-      <meta property="og:image" content="/og-image.png" />
+      <meta property="og:image" content="https://ahuizotl.dev/og-image.png" />
       <meta property="og:url" content="https://ahuizotl.dev" />
       <meta property="og:type" content="website" />
 
