@@ -108,7 +108,7 @@ const About = ({}) => {
               <p>{t.p1} {" "}<strong>{t.strong1}</strong>.</p>
               <p>
                 {t.p2} {" "}
-                <a href="https://kingtide.com/" rel="noopener noreferrer" target="_blank" className="__Link">{"King Tide"}</a> {" "}
+                <a href="https://www.bancoautofin.mx/" rel="noopener noreferrer" target="_blank" className="__Link">{"Kapital Bank"}</a> {" "}
                 {t.p3} {" "}
               </p>
               <p>
