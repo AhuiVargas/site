@@ -4,4 +4,7 @@ module.exports = {
     locales: ['en', 'es'],
     defaultLocale: 'en',
   },
+  compiler: {
+    styledComponents: true,
+  },
 };
