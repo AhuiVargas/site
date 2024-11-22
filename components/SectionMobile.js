@@ -18,12 +18,12 @@ const CardContainer = styled.div`
   flex-direction: column;
   width: 100%;
   height: auto;
-  background-image: ${(props) => `url(${props.backgroundImage})`};
+  background-image: ${({ $backgroundImage }) => `url(${$backgroundImage})`};
   background-size: cover;
   background-repeat: no-repeat;
   border-radius: 1rem;
   padding: 2rem;
-  z-index: 10; // Keeps content on top
+  z-index: 10;
 `;
 
 const LeftColumn = styled.div`
@@ -83,10 +83,18 @@ const Image = styled.img`
   object-fit: cover;
 `;
 
-const SectionMobile = ({ titleImageSrc, subtitle, description, ctaText, ctaLink, imageSrc, backgroundImage }) => {
+const SectionMobile = ({
+  titleImageSrc,
+  subtitle,
+  description,
+  ctaText,
+  ctaLink,
+  imageSrc,
+  backgroundImage,
+}) => {
   return (
     <SectionContainer>
-      <CardContainer backgroundImage={backgroundImage}>
+      <CardContainer $backgroundImage={backgroundImage}>
         <RightColumn>
           <Image src={imageSrc} alt="Mobile Section Image" />
         </RightColumn>
@@ -94,7 +102,9 @@ const SectionMobile = ({ titleImageSrc, subtitle, description, ctaText, ctaLink,
           <TitleImage src={titleImageSrc} alt="Title Image" />
           <Subtitle>{subtitle}</Subtitle>
           <Description>{description}</Description>
-          <CTAButton href={ctaLink} target="_blank" rel="noopener noreferrer">{ctaText}</CTAButton>
+          <CTAButton href={ctaLink} target="_blank" rel="noopener noreferrer">
+            {ctaText}
+          </CTAButton>
         </LeftColumn>
       </CardContainer>
     </SectionContainer>

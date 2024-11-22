@@ -96,7 +96,7 @@ const About = ({}) => {
           <div className="__Wrapper">
             <div className="__MemojiContainer">
               <div className="__Memoji">
-                <Image src={memoji} width={300} height={300} alt="memoji image"></Image>
+                <Image src={memoji} width={250} height={250} alt="memoji image"></Image>
               </div>
               <div>
                 <h1 className='__Title'>{t.title}</h1>

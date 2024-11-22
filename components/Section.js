@@ -21,7 +21,7 @@ const CardContainer = styled.div`
   max-width: 42rem;
   max-height: 38rem;
   min-height: 38rem;
-  background-image: ${(props) => `url(${props.backgroundImage})`};
+  background-image: ${({ $backgroundImage }) => `url(${$backgroundImage})`};
   background-size: cover;
   background-repeat: no-repeat;
   border-radius: 3.125rem;
@@ -45,28 +45,26 @@ const TitleImage = styled.img`
 `;
 
 const Subtitle = styled.h3`
-    font-style: normal;
-    font-weight: 700;
-    font-size: 2rem;
-    line-height: 2.625rem;
-    color: #fff;
-    margin: 0;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 2rem;
+  line-height: 2.625rem;
+  color: #fff;
+  margin: 0;
 `;
 
 const Description = styled.p`
-    font-size: 1.25rem;
-    font-weight: 400;
-    line-height: 1.625rem;
-    letter-spacing: 0;
-    text-align: left;
-    color: #fff;
-    max-width: 22.375rem;
-    margin: 0;
+  font-size: 1.25rem;
+  font-weight: 400;
+  line-height: 1.625rem;
+  letter-spacing: 0;
+  text-align: left;
+  color: #fff;
+  max-width: 22.375rem;
+  margin: 0;
 `;
 
-  const CTAButton = styled.a`
-  align-self: start;
-  padding: 1rem;
+const CTAButton = styled.a`
   align-self: start;
   padding: 1rem;
   border-radius: 0.5rem;
@@ -94,13 +92,12 @@ const Description = styled.p`
     background: linear-gradient(263deg, #ff8c38 16.7%, #72c6e1 95.73%);
     z-index: -1;
     opacity: 0;
-    transition: opacity 0.6s ease; /* Smooth opacity transition */
+    transition: opacity 0.6s ease;
   }
 
   &:hover:before {
-    opacity: 1; /* Fade in the gradient background */
+    opacity: 1;
   }
-
 `;
 
 const RightColumn = styled.div`
@@ -115,13 +112,14 @@ const Image = styled.img`
   position: absolute;
   top: 50%;
   right: -120%;
-  transform: translateY(-50%); 
-  max-width: 200%;     
+  transform: translateY(-50%);
+  max-width: 200%;
   height: auto;
   border-radius: 1rem;
   object-fit: cover;
   z-index: 1;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+
   &:hover {
     transform: translateY(-50%) scale(1.05);
   }
@@ -132,19 +130,29 @@ const SeparatorImage = styled.img`
   height: auto;
 `;
 
-const Section = ({ titleImageSrc, subtitle, description, ctaText, ctaLink, imageSrc, backgroundImage }) => {
+const Section = ({
+  titleImageSrc,
+  subtitle,
+  description,
+  ctaText,
+  ctaLink,
+  imageSrc,
+  backgroundImage,
+}) => {
   return (
     <SectionContainer>
-      <CardContainer backgroundImage={backgroundImage}>
+      <CardContainer $backgroundImage={backgroundImage}>
         <LeftColumn>
           <TitleImage src={titleImageSrc} alt="Title Image" />
           <Subtitle>{subtitle}</Subtitle>
           <SeparatorImage src="/separator.svg" />
           <Description>{description}</Description>
-          <CTAButton href={ctaLink} target="_blank" rel="noopener noreferrer">{ctaText}</CTAButton>
+          <CTAButton href={ctaLink} target="_blank" rel="noopener noreferrer">
+            {ctaText}
+          </CTAButton>
         </LeftColumn>
         <RightColumn>
-          <Image src={imageSrc} alt="Section Image"/>
+          <Image src={imageSrc} alt="Section Image" />
         </RightColumn>
       </CardContainer>
     </SectionContainer>
