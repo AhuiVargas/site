@@ -1,6 +1,6 @@
 /* eslint-disable import/no-anonymous-default-export */
 export default {
-  title: "Hello there! 👋  I'm Ahuizotl Vargas",
+  title: "Hello there! 👋  I'm Ahuizotl",
   subtitle: "I love building things for the web and real life",
   p1: "I'm a frontend web developer who loves",
   strong1: "NextJs, React, Styled-Components, Tailwind, GraphQL, and Node",

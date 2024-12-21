@@ -6,8 +6,7 @@ const StyledFooter = styled.footer`
   padding: 2rem;
   background-color: #000;
   z-index: 10;
-
-  position:relative;
+  position: relative;
 
   .__wrapper {
     max-width: 74rem;
@@ -54,6 +53,19 @@ const StyledFooter = styled.footer`
       }
     }
   }
+
+  .__badge {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+    cursor: pointer;
+
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+  }
 `;
 
 const Social = () => (
@@ -65,6 +77,11 @@ const Social = () => (
           <a href="/Ahuizotl-resume-2024.pdf" rel="noopener noreferrer" target="_blank">CV</a>
           <a href="https://www.linkedin.com/in/ahui-vargas/" rel="noopener noreferrer" target="_blank">LinkedIn</a>
           <a href="https://github.com/AhuiVargas/" rel="noopener noreferrer" target="_blank">GitHub</a>
+        </div>
+        <div className="__badge">
+          <a href="https://www.codewars.com/users/Ahuizotl" rel="noopener noreferrer" target="_blank">
+            <img src="https://www.codewars.com/users/Ahuizotl/badges/large" alt="Codewars Badge" />
+          </a>
         </div>
       </div>
     </StyledFooter>
