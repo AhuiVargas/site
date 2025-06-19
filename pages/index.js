@@ -1,8 +1,9 @@
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useContext } from "react";
 import styled from "styled-components";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import { useRouter } from "next/router";
+import { ThemeContext } from "../pages/providers";
 import {
 	Nav,
 	Social,
@@ -37,6 +38,7 @@ const Home = () => {
 	const sectionRefs = useRef([]);
 	const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
 	const [isMobile, setIsMobile] = useState(false);
+	const darkMode = useContext(ThemeContext);
 
 	const { locale } = useRouter();
 	const t = locale === "en" ? en : es;
@@ -89,12 +91,14 @@ const Home = () => {
 
 	return (
 		<HomeContainer>
-			<Cursor
-				style={{
-					top: `${cursorPosition.y}px`,
-					left: `${cursorPosition.x}px`,
-				}}
-			/>
+			{darkMode.value && (
+				<Cursor
+					style={{
+						top: `${cursorPosition.y}px`,
+						left: `${cursorPosition.x}px`,
+					}}
+				/>
+			)}
 			<Nav />
 			<About />
 			<div ref={(el) => (sectionRefs.current[0] = el)}>

@@ -3,7 +3,7 @@ export default {
 	title: "Hi! 👋  I'm Ahuizotl",
 	subtitle: "I build web experiences that feel as good as they look.",
 	p1: "I'm a frontend web developer who loves",
-  	strong1: "Next.js, React, Tailwind CSS, Styled-Components, GraphQL, and Node.js.",
+  	strong1: "Next.js, React, Tailwind CSS, Styled-Components, GraphQL, and Node.js",
   	p2: "I'm currently working at",
 	p3: "as a Frontend Developer.",
 	p4: "Studied at",

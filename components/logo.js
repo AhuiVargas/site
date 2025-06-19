@@ -1,4 +1,4 @@
-const Logo = () => {
+const Logo = ({fill = "#000"}) => {
 	return (
 		<svg
 			version="1.0"
@@ -10,7 +10,7 @@ const Logo = () => {
 		>
 			<g
 				transform="translate(0.000000,720.000000) scale(0.100000,-0.100000)"
-				fill="#fff"
+				fill={fill}
 				stroke="none"
 			>
 				<path

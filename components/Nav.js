@@ -1,8 +1,10 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useContext } from "react";
+import Image from "next/image";
 import router, { useRouter } from "next/router";
 import styled from "styled-components";
 import { Cross as Hamburger } from "hamburger-react";
 import Logo from "./logo";
+import { ThemeContext } from "../pages/providers";
 
 import { mixins, media } from "../styles";
 import en from "../locales/en";
@@ -45,6 +47,8 @@ const StyledNav = styled.div`
     background-color: ${(props) => props.theme.rgba.menu};
 
     .__SwitchDesktop {
+      ${mixins.flexCenter};
+      gap: 1rem;
       ${media.bp1024`
         display: none;
       `}
@@ -61,6 +65,21 @@ const StyledNav = styled.div`
           white-space: nowrap;
           min-height: 1.2em;
           padding: 0px 2px 1px;
+        }
+      }
+      .__ThemeSwitch {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: ${(props) => props.theme.text.anchor};
+        background: transparent;
+        border: transparent;
+        cursor: pointer;
+        font-size: 1.2rem;
+        padding: 0.25rem;
+        transition: transform 0.3s ease;
+        &:hover {
+          transform: scale(1.1);
         }
       }
     }
@@ -165,110 +184,145 @@ const StyledNav = styled.div`
   `;
 
 const Nav = () => {
-  const [isOpen, setIsOpen] = React.useState(false);
-  const [isScrolling, setIsScrolling] = React.useState(false);
-  const { locale } = useRouter();
-  const t = locale === "en" ? en : es;
+	const [isOpen, setIsOpen] = React.useState(false);
+	const [isScrolling, setIsScrolling] = React.useState(false);
+	const { locale } = useRouter();
+	const darkMode = useContext(ThemeContext);
+	const t = locale === "en" ? en : es;
+	const [iconColor, setIconColor] = React.useState("#000");
+	const logoFill = darkMode.value ? "#fff" : "#000";
 
-  React.useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY >= 20) {
-        setIsScrolling(true);
-      } else {
-        setIsScrolling(false);
-      }
-    };
-    window.addEventListener("scroll", handleScroll);
-  }, []);
+	React.useEffect(() => {
+		const handleScroll = () => {
+			if (window.scrollY >= 20) {
+				setIsScrolling(true);
+			} else {
+				setIsScrolling(false);
+			}
+		};
+		window.addEventListener("scroll", handleScroll);
+	}, []);
 
-  const changeLanguage = (e) => {
-    const locale = e.target.value;
-    router.push(router.pathname, router.asPath, { locale, scroll: false }),
-      setIsOpen(false);
-  };
+	React.useEffect(() => {
+		setIconColor(darkMode.value ? "#fff" : "#000");
+	}, [darkMode.value]);
 
-  return (
-    <Fragment>
-      <StyledNav>
-        <div className={isOpen ? "fullscreen" : null}>
-          <div className="__Wrapper">
-            <nav
-              className={isScrolling && !isOpen ? "__Menu active" : "__Menu"}
-            >
-              <a className="__AnchorLink">
-                <Logo />
-              </a>
-              <div className="__SwitchDesktop">
-                <select
-                  onChange={changeLanguage}
-                  defaultValue={locale}
-                  className="__LangSwitch"
-                >
-                  <option value="en">EN</option>
-                  <option value="es">ES</option>
-                </select>
-              </div>
-              <div className="__BurgerBox">
-                <Hamburger
-                  toggled={isOpen}
-                  toggle={setIsOpen}
-                  duration={0.5}
-                  size={25}
-                />
-              </div>
-            </nav>
-            {isOpen ? (
-              <Fragment>
-                <nav className="__MenuMobile">
-                  <div className="__LinkGroup">
-                    <div className="__SwitchMobile">
-                      <select
-                        onChange={changeLanguage}
-                        defaultValue={locale}
-                        className="__LangSwitch"
-                      >
-                        <option value="en">EN</option>
-                        <option value="es">ES</option>
-                      </select>
-                    </div>
-                    <a
-                      href="mailto:ahuijr@gmail.com"
-                      rel="noopener noreferrer"
-                      target="_blank"
-                    >
-                      Email
-                    </a>
-                    <a
-                      href="/Ahuizotl-resume-2024.pdf"
-                      rel="noopener noreferrer"
-                      target="_blank"
-                    >
-                      CV
-                    </a>
-                    <a
-                      href="https://www.linkedin.com/in/ahui-vargas/"
-                      rel="noopener noreferrer"
-                      target="_blank"
-                    >
-                      LinkedIn
-                    </a>
-                    <a
-                      href="https://github.com/AhuiVargas/"
-                      rel="noopener noreferrer"
-                      target="_blank"
-                    >
-                      GitHub
-                    </a>
-                  </div>
-                </nav>
-              </Fragment>
-            ) : null}
-          </div>
-        </div>
-      </StyledNav>
-      <HolidayAnimation isOpen={isOpen} />
-    </Fragment>
-  );
+	const changeLanguage = (e) => {
+		const locale = e.target.value;
+		router.push(router.pathname, router.asPath, { locale, scroll: false }),
+			setIsOpen(false);
+	};
+
+	return (
+		<Fragment>
+			<StyledNav>
+				<div className={isOpen ? "fullscreen" : null}>
+					<div className="__Wrapper">
+						<nav
+							className={isScrolling && !isOpen ? "__Menu active" : "__Menu"}
+						>
+							<a className="__AnchorLink">
+								<Logo fill={logoFill} />
+							</a>
+							<div className="__SwitchDesktop">
+								<select
+									onChange={changeLanguage}
+									defaultValue={locale}
+									className="__LangSwitch"
+								>
+									<option value="en">EN</option>
+									<option value="es">ES</option>
+								</select>
+								<button onClick={darkMode.toggle} className="__ThemeSwitch">
+									<Image
+										src={darkMode.value ? "/sun.svg" : "/moon.svg"}
+										alt="Theme Icon"
+										width={24}
+										height={24}
+										style={{
+											filter: iconColor === "#fff" ? "invert(1)" : "invert(0)",
+										}}
+									/>
+								</button>
+							</div>
+							<div className="__BurgerBox">
+								<Hamburger
+									toggled={isOpen}
+									toggle={setIsOpen}
+									duration={0.5}
+									size={25}
+								/>
+							</div>
+						</nav>
+						{isOpen ? (
+							<Fragment>
+								<nav className="__MenuMobile">
+									<div className="__LinkGroup">
+										<a
+											href="mailto:ahuijr@gmail.com"
+											rel="noopener noreferrer"
+											target="_blank"
+										>
+											Email
+										</a>
+										<a
+											href="/Ahuizotl-resume-2024.pdf"
+											rel="noopener noreferrer"
+											target="_blank"
+										>
+											CV
+										</a>
+										<a
+											href="https://www.linkedin.com/in/ahui-vargas/"
+											rel="noopener noreferrer"
+											target="_blank"
+										>
+											LinkedIn
+										</a>
+										<a
+											href="https://github.com/AhuiVargas/"
+											rel="noopener noreferrer"
+											target="_blank"
+										>
+											GitHub
+										</a>
+										<div className="__SwitchMobile">
+											<select
+												onChange={changeLanguage}
+												defaultValue={locale}
+												className="__LangSwitch"
+											>
+												<option value="en">EN</option>
+												<option value="es">ES</option>
+											</select>
+										</div>
+										<div className="__SwitchMobile">
+											<button
+												onClick={darkMode.toggle}
+												className="__ThemeSwitch"
+											>
+												<Image
+													src={darkMode.value ? "/sun.svg" : "/moon.svg"}
+													alt="Theme Icon"
+													width={24}
+													height={24}
+													style={{
+														filter:
+															iconColor === "#fff" ? "invert(1)" : "invert(0)",
+													}}
+												/>
+											</button>
+										</div>
+									</div>
+								</nav>
+							</Fragment>
+						) : null}
+					</div>
+				</div>
+			</StyledNav>
+			<HolidayAnimation isOpen={isOpen} />
+		</Fragment>
+	);
 };
 
 export default Nav;

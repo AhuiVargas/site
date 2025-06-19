@@ -48,5 +48,5 @@ const defaultTheme = {
   transition: 'all 0.3s ease-in-out 0s',
 }
 
-export const lightTheme = { ...defaultTheme, ...dark}; // always dark theme for now
+export const lightTheme = { ...defaultTheme, ...light};
 export const darkTheme = { ...defaultTheme, ...dark};

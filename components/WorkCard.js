@@ -5,11 +5,11 @@ import en from "../locales/en";
 import es from "../locales/es";
 
 const WorkCardContainer = styled.div`
-  background-color: #000;
+  background-color: ${(props) => props.theme.rgba.menu};
   padding: 1rem;
   max-width: 600px;
   margin: 2rem auto 0;
-  border: 1px solid #fff;
+  border-radius: 0.5rem;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
   text-align: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -34,7 +34,7 @@ const SectionTitle = styled.h2`
 `;
 
 const Description = styled.p`
-  color: #fff;
+        color: ${(props) => props.theme.text.anchor};
   font-size: 1.2rem;
   line-height: 1.6;
 `;
