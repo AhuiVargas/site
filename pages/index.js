@@ -25,7 +25,7 @@ const Cursor = styled.div`
   background: url(/pointer.png) no-repeat center center;
   background-size: cover;
   mix-blend-mode: difference;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%) rotate(180deg);
 `;
 
 const HomeContainer = styled.div`

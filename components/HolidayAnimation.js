@@ -8,7 +8,7 @@ const AnimationContainer = styled.div`
   left: 0;
   width: 100%;
   max-width: 96.5vw;
-  height: 3.5rem;
+  height: 57px;
   margin: 1rem auto;
   background: linear-gradient(263deg, #ff8c38 16.7%, #72c6e1 95.73%);
   display: flex;
@@ -20,7 +20,6 @@ const AnimationContainer = styled.div`
 
   ${media.bp1024`
     width: 94.5%;
-    height: 3.5rem;
   `}
 
   ${media.bp700`

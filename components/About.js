@@ -26,23 +26,22 @@ const HeroHeaderStyled = styled.section`
 
       .__Content {
         a {
+          display: inline-block;
+          font-weight: 700;
+          word-break: break-word;
+          padding: 0 0.25rem;
+          transition: transform 0.5s ease, color 0.5s ease, background-image 0.5s ease;
+      
           &:hover {
-            font-weight: 800;
-            word-break: break-all;
+            transform: scale(1.05);
             background-image: linear-gradient(263deg,#ff8c38 16.7%,#72c6e1 95.73%);
             background-clip: padding-box;
             color: ${(props) => props.theme.text.contrast};
-            padding: 0px 0.25rem;
           }
+      
           ${media.bp1024`
             font-size: 1.2rem;
-            font-weight: 800;
-            word-break: break-all;
-            background-color: linear-gradient(263deg,#ff8c38 16.7%,#72c6e1 95.73%);
-            background-clip: padding-box;
-            color: ${(props) => props.theme.text.contrast};
-            padding: 0px 0.25rem;
-            margin: 0px;
+            margin: 0;
           `}
         }
       }
@@ -108,7 +107,7 @@ const About = ({}) => {
               <p>{t.p1} {" "}<strong>{t.strong1}</strong>.</p>
               <p>
                 {t.p2} {" "}
-                <a href="https://www.bancoautofin.mx/" rel="noopener noreferrer" target="_blank" className="__Link">{"Kapital Bank"}</a> {" "}
+                <a href="https://www.slalom.com/us/en" rel="noopener noreferrer" target="_blank" className="__Link">{"Slalom"}</a> {" "}
                 {t.p3} {" "}
               </p>
               <p>

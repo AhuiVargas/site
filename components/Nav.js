@@ -2,6 +2,7 @@ import React, { Fragment } from "react";
 import router, { useRouter } from "next/router";
 import styled from "styled-components";
 import { Cross as Hamburger } from "hamburger-react";
+import Logo from "./logo";
 
 import { mixins, media } from "../styles";
 import en from "../locales/en";
@@ -36,6 +37,7 @@ const StyledNav = styled.div`
 
   .__Menu {
     ${mixins.flexCenterBetween};
+    padding: 0 1rem;
     overflow: hidden;
     border-radius: 0.5rem;
     backdrop-filter: blur(16px);
@@ -48,7 +50,6 @@ const StyledNav = styled.div`
       `}
       .__LangSwitch {
         display: block;
-        padding: 1rem;
         color: ${(props) => props.theme.text.anchor};
         background: transparent;
         border: transparent;
@@ -65,7 +66,6 @@ const StyledNav = styled.div`
     }
 
     .__AnchorLink {
-      padding: 1rem 2rem;
       color: ${(props) => props.theme.text.anchor};
       font-size: 1rem;
       font-weight: 400;
@@ -195,7 +195,9 @@ const Nav = () => {
             <nav
               className={isScrolling && !isOpen ? "__Menu active" : "__Menu"}
             >
-              <a className="__AnchorLink">Ahuizotl Vargas</a>
+              <a className="__AnchorLink">
+                <Logo />
+              </a>
               <div className="__SwitchDesktop">
                 <select
                   onChange={changeLanguage}
