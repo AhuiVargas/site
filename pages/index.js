@@ -38,12 +38,14 @@ const Home = () => {
 	const sectionRefs = useRef([]);
 	const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
 	const [isMobile, setIsMobile] = useState(false);
-	const darkMode = useContext(ThemeContext);
+	const { value: isDarkMode, mounted } = useContext(ThemeContext);
 
 	const { locale } = useRouter();
 	const t = locale === "en" ? en : es;
 
 	useEffect(() => {
+		if (!mounted) return;
+		
 		const handleMouseMove = (event) => {
 			setCursorPosition({
 				x: event.clientX,
@@ -53,9 +55,11 @@ const Home = () => {
 
 		window.addEventListener("mousemove", handleMouseMove);
 		return () => window.removeEventListener("mousemove", handleMouseMove);
-	}, []);
+	}, [mounted]);
 
 	useEffect(() => {
+		if (!mounted) return;
+		
 		const handleResize = () => {
 			setIsMobile(window.innerWidth <= 768);
 		};
@@ -63,9 +67,11 @@ const Home = () => {
 		handleResize();
 		window.addEventListener("resize", handleResize);
 		return () => window.removeEventListener("resize", handleResize);
-	}, []);
+	}, [mounted]);
 
 	useEffect(() => {
+		if (!mounted) return;
+
 		gsap.killTweensOf(sectionRefs.current);
 
 		sectionRefs.current.forEach((section) => {
@@ -87,11 +93,57 @@ const Home = () => {
 				}
 			);
 		});
-	}, []);
+	}, [mounted]);
+
+	if (!mounted) {
+		return (
+			<HomeContainer>
+				<Nav />
+				<About />
+				<div>
+					<WorkCard />
+				</div>
+				<div>
+					<Section
+						titleImageSrc="/Rappi.png"
+						subtitle="Unicorn startup fintech/delivery"
+						description="Tech stack: Angular, RXJS, NGRX, Typescript, GraphQL, Material Components, Single SPA, HTML, CSS"
+						ctaText={t.cta}
+						ctaLink="https://www.rappipay.com/"
+						imageSrc="/RappiSS.png"
+						backgroundImage="/RappiBG.png"
+					/>
+				</div>
+				<div>
+					<Section
+						titleImageSrc="/Kapital.svg"
+						subtitle="Fintech, AI, banking and internal tooling"
+						description="Tech stack: NextJS, Typescript, Redux, React, Tailwind, Git, Bitbucket, REST"
+						ctaText={t.cta}
+						ctaLink="https://www.kapital.cc/productos/kapital-ai"
+						imageSrc="/KapitalSS.png"
+						backgroundImage="/KapitalBG.png"
+					/>
+				</div>
+				<div>
+					<Section
+						titleImageSrc="/KingTide.svg"
+						subtitle="KT Venture capital studio"
+						description="Tech stack: React, NextJS, Styled Components, GraphQL, REST, HTML, CSS."
+						ctaText={t.cta}
+						ctaLink="https://www.kingtide.com/"
+						imageSrc="/KingTideSS.png"
+						backgroundImage="/KingTideBG.png"
+					/>
+				</div>
+				<Social />
+			</HomeContainer>
+		);
+	}
 
 	return (
 		<HomeContainer>
-			{darkMode.value && (
+			{isDarkMode && (
 				<Cursor
 					style={{
 						top: `${cursorPosition.y}px`,

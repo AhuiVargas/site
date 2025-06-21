@@ -1,8 +1,5 @@
-// pages/_app.js
-import React from "react";
 import Script from "next/script";
 import Providers from "./providers";
-import { GlobalStyle } from "../styles";
 import HeadComp from "../components/HeadComp";
 
 function MyApp({ Component, pageProps }) {
@@ -30,7 +27,6 @@ function MyApp({ Component, pageProps }) {
 			/>
 
 			<Providers>
-				<GlobalStyle />
 				<Component {...pageProps} />
 			</Providers>
 		</>

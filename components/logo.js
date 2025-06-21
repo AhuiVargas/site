@@ -1,4 +1,4 @@
-const Logo = ({fill = "#000"}) => {
+const Logo = ({fill}) => {
 	return (
 		<svg
 			version="1.0"
