@@ -10,6 +10,7 @@ import { mixins, media } from "../styles";
 import en from "../locales/en";
 import es from "../locales/es";
 import HolidayAnimation from "./HolidayAnimation";
+import Signature from "./Signature"
 
 const StyledNav = styled.div`
   padding: 2rem;
@@ -221,9 +222,7 @@ const Nav = () => {
 						<nav
 							className={isScrolling && !isOpen ? "__Menu active" : "__Menu"}
 						>
-							<a className="__AnchorLink">
-								<Logo fill={logoFill} />
-							</a>
+                            <Signature width={50} height={53} />
 							<div className="__SwitchDesktop">
 								<select
 									onChange={changeLanguage}
