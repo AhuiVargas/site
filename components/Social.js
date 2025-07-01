@@ -76,7 +76,7 @@ const Social = () => (
 						Email
 					</a>
 					<a
-						href="/Ahuizotl-resume-2024.pdf"
+						href="/av-resume-2025.pdf"
 						rel="noopener noreferrer"
 						target="_blank"
 					>

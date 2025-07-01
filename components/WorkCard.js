@@ -13,11 +13,6 @@ const WorkCardContainer = styled.div`
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
   text-align: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-
-  &:hover {
-    transform: scale(1.02);
-    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.4);
-  }
 `;
 
 const SectionTitle = styled.h2`
