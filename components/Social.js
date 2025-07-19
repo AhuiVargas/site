@@ -25,7 +25,6 @@ const StyledFooter = styled.footer`
 			font-weight: 200;
 			text-align: center;
 			border: 1px solid #fff;
-			border-radius: 0.5rem;
 			background: transparent;
 			position: relative;
 			overflow: hidden;

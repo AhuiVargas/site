@@ -9,7 +9,6 @@ const WorkCardContainer = styled.div`
   padding: 1rem;
   max-width: 600px;
   margin: 2rem auto 0;
-  border-radius: 0.5rem;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
   text-align: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;

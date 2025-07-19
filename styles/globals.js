@@ -62,7 +62,6 @@ const GlobalStyle = createGlobalStyle`
     font-size: 1.7rem;
     font-weight: 700;
     cursor: pointer;
-    border-radius: 0.5rem;
   }
 
   p {

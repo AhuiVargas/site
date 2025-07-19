@@ -1,4 +1,3 @@
-import React from "react";
 import styled from "styled-components";
 
 const SectionContainer = styled.section`
@@ -59,7 +58,6 @@ const Description = styled.p`
 
 const CTAButton = styled.a`
   padding: 0.5rem 1rem;
-  border-radius: 0.5rem;
   font-weight: 200;
   font-size: 1rem;
   color: #fff;
@@ -79,7 +77,6 @@ const Image = styled.img`
   max-width: 100%;
   height: auto;
   max-height: 26rem;
-  border-radius: 1rem;
   object-fit: cover;
 `;
 

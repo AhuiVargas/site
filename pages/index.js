@@ -34,6 +34,44 @@ const HomeContainer = styled.div`
 	position: relative;
 `;
 
+const sectionData = [
+	{
+		titleImageSrc: "/Rappi.png",
+		subtitle: "Unicorn startup fintech/delivery",
+		description:
+			"Tech stack: Angular, RXJS, NGRX, Typescript, GraphQL, Material Components, Single SPA, HTML, CSS",
+		ctaLink: "https://www.rappipay.com/",
+		imageSrc: "/RappiSS.png",
+		backgroundImage: "/RappiBG.png",
+	},
+	{
+		titleImageSrc: "/Kapital.svg",
+		subtitle: "Fintech, AI, banking and internal tooling",
+		description:
+			"Tech stack: NextJS, Typescript, Redux, React, Tailwind, Git, Bitbucket, REST",
+		ctaLink: "https://www.kapital.cc/productos/kapital-ai",
+		imageSrc: "/KapitalSS.png",
+		backgroundImage: "/KapitalBG.png",
+	},
+	{
+		titleImageSrc: "/KingTide.svg",
+		subtitle: "KT Venture capital studio",
+		description:
+			"Tech stack: React, NextJS, Styled Components, GraphQL, REST, HTML, CSS.",
+		ctaLink: "https://www.kingtide.com/",
+		imageSrc: "/KingTideSS.png",
+		backgroundImage: "/KingTideBG.png",
+	},
+	{
+		titleImageSrc: "/Lhopital.png",
+		subtitle: "Business Site",
+		description: "Tech stack: NextJS, Tailwind, TS, SSR, Resend.",
+		ctaLink: "https://www.lhopital-fr.mx/",
+		imageSrc: "/LhopitalSS.png",
+		backgroundImage: "/LhopitalBG.png",
+	},
+];
+
 const Home = () => {
 	const sectionRefs = useRef([]);
 	const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
@@ -45,7 +83,7 @@ const Home = () => {
 
 	useEffect(() => {
 		if (!mounted) return;
-		
+
 		const handleMouseMove = (event) => {
 			setCursorPosition({
 				x: event.clientX,
@@ -59,7 +97,7 @@ const Home = () => {
 
 	useEffect(() => {
 		if (!mounted) return;
-		
+
 		const handleResize = () => {
 			setIsMobile(window.innerWidth <= 768);
 		};
@@ -103,39 +141,19 @@ const Home = () => {
 				<div>
 					<WorkCard />
 				</div>
-				<div>
-					<Section
-						titleImageSrc="/Rappi.png"
-						subtitle="Unicorn startup fintech/delivery"
-						description="Tech stack: Angular, RXJS, NGRX, Typescript, GraphQL, Material Components, Single SPA, HTML, CSS"
-						ctaText={t.cta}
-						ctaLink="https://www.rappipay.com/"
-						imageSrc="/RappiSS.png"
-						backgroundImage="/RappiBG.png"
-					/>
-				</div>
-				<div>
-					<Section
-						titleImageSrc="/Kapital.svg"
-						subtitle="Fintech, AI, banking and internal tooling"
-						description="Tech stack: NextJS, Typescript, Redux, React, Tailwind, Git, Bitbucket, REST"
-						ctaText={t.cta}
-						ctaLink="https://www.kapital.cc/productos/kapital-ai"
-						imageSrc="/KapitalSS.png"
-						backgroundImage="/KapitalBG.png"
-					/>
-				</div>
-				<div>
-					<Section
-						titleImageSrc="/KingTide.svg"
-						subtitle="KT Venture capital studio"
-						description="Tech stack: React, NextJS, Styled Components, GraphQL, REST, HTML, CSS."
-						ctaText={t.cta}
-						ctaLink="https://www.kingtide.com/"
-						imageSrc="/KingTideSS.png"
-						backgroundImage="/KingTideBG.png"
-					/>
-				</div>
+				{sectionData.map((section, index) => (
+					<div key={index}>
+						<Section
+							titleImageSrc={section.titleImageSrc}
+							subtitle={section.subtitle}
+							description={section.description}
+							ctaText={t.cta}
+							ctaLink={section.ctaLink}
+							imageSrc={section.imageSrc}
+							backgroundImage={section.backgroundImage}
+						/>
+					</div>
+				))}
 				<Social />
 			</HomeContainer>
 		);
@@ -157,77 +175,31 @@ const Home = () => {
 				<WorkCard />
 			</div>
 
-			<div ref={(el) => (sectionRefs.current[1] = el)}>
-				{isMobile ? (
-					<SectionMobile
-						titleImageSrc="/Rappi.png"
-						subtitle="Unicorn startup fintech/delivery"
-						description="Tech stack: Angular, RXJS, NGRX, Typescript, GraphQL, Material Components, Single SPA, HTML, CSS"
-						ctaText={t.cta}
-						ctaLink="https://www.rappipay.com/"
-						imageSrc="/RappiSS.png"
-						backgroundImage="/RappiBG.png"
-					/>
-				) : (
-					<Section
-						titleImageSrc="/Rappi.png"
-						subtitle="Unicorn startup fintech/delivery"
-						description="Tech stack: Angular, RXJS, NGRX, Typescript, GraphQL, Material Components, Single SPA, HTML, CSS"
-						ctaText={t.cta}
-						ctaLink="https://www.rappipay.com/"
-						imageSrc="/RappiSS.png"
-						backgroundImage="/RappiBG.png"
-					/>
-				)}
-			</div>
-
-			<div ref={(el) => (sectionRefs.current[2] = el)}>
-				{isMobile ? (
-					<SectionMobile
-						titleImageSrc="/Kapital.svg"
-						subtitle="Fintech, AI, banking and internal tooling"
-						description="Tech stack: NextJS, Typescript, Redux, React, Tailwind, Git, Bitbucket, REST"
-						ctaText={t.cta}
-						ctaLink="https://www.kapital.cc/productos/kapital-ai"
-						imageSrc="/KapitalSS.png"
-						backgroundImage="/KapitalBG.png"
-					/>
-				) : (
-					<Section
-						titleImageSrc="/Kapital.svg"
-						subtitle="Fintech, AI, banking and internal tooling"
-						description="Tech stack: NextJS, Typescript, Redux, React, Tailwind, Git, Bitbucket, REST"
-						ctaText={t.cta}
-						ctaLink="https://www.kapital.cc/productos/kapital-ai"
-						imageSrc="/KapitalSS.png"
-						backgroundImage="/KapitalBG.png"
-					/>
-				)}
-			</div>
-
-			<div ref={(el) => (sectionRefs.current[3] = el)}>
-				{isMobile ? (
-					<SectionMobile
-						titleImageSrc="/KingTide.svg"
-						subtitle="KT Venture capital studio"
-						description="Tech stack: React, NextJS, Styled Components, GraphQL, REST, HTML, CSS."
-						ctaText={t.cta}
-						ctaLink="https://www.kingtide.com/"
-						imageSrc="/KingTideSS.png"
-						backgroundImage="/KingTideBG.png"
-					/>
-				) : (
-					<Section
-						titleImageSrc="/KingTide.svg"
-						subtitle="KT Venture capital studio"
-						description="Tech stack: React, NextJS, Styled Components, GraphQL, REST, HTML, CSS."
-						ctaText={t.cta}
-						ctaLink="https://www.kingtide.com/"
-						imageSrc="/KingTideSS.png"
-						backgroundImage="/KingTideBG.png"
-					/>
-				)}
-			</div>
+			{sectionData.map((section, index) => (
+				<div key={index} ref={(el) => (sectionRefs.current[index + 1] = el)}>
+					{isMobile ? (
+						<SectionMobile
+							titleImageSrc={section.titleImageSrc}
+							subtitle={section.subtitle}
+							description={section.description}
+							ctaText={t.cta}
+							ctaLink={section.ctaLink}
+							imageSrc={section.imageSrc}
+							backgroundImage={section.backgroundImage}
+						/>
+					) : (
+						<Section
+							titleImageSrc={section.titleImageSrc}
+							subtitle={section.subtitle}
+							description={section.description}
+							ctaText={t.cta}
+							ctaLink={section.ctaLink}
+							imageSrc={section.imageSrc}
+							backgroundImage={section.backgroundImage}
+						/>
+					)}
+				</div>
+			))}
 
 			<Social />
 		</HomeContainer>

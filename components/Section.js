@@ -67,7 +67,6 @@ const Description = styled.p`
 const CTAButton = styled.a`
   align-self: start;
   padding: 1rem;
-  border-radius: 0.5rem;
   font-weight: 200;
   font-size: 1.1rem;
   color: #fff;
@@ -115,7 +114,6 @@ const Image = styled.img`
   transform: translateY(-50%);
   max-width: 200%;
   height: auto;
-  border-radius: 1rem;
   object-fit: cover;
   z-index: 1;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
