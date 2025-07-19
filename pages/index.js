@@ -10,7 +10,6 @@ import {
 	About,
 	Section,
 	SectionMobile,
-	WorkCard,
 } from "../components";
 
 import en from "../locales/en";
@@ -65,7 +64,7 @@ const sectionData = [
 	{
 		titleImageSrc: "/Lhopital.png",
 		subtitle: "Business Site",
-		description: "Tech stack: NextJS, Tailwind, TS, SSR, Resend.",
+		description: "Tech stack: NextJS, Tailwind, TS, Server Components, Resend.",
 		ctaLink: "https://www.lhopital-fr.mx/",
 		imageSrc: "/LhopitalSS.png",
 		backgroundImage: "/LhopitalBG.png",
@@ -138,9 +137,6 @@ const Home = () => {
 			<HomeContainer>
 				<Nav />
 				<About />
-				<div>
-					<WorkCard />
-				</div>
 				{sectionData.map((section, index) => (
 					<div key={index}>
 						<Section
@@ -171,9 +167,6 @@ const Home = () => {
 			)}
 			<Nav />
 			<About />
-			<div ref={(el) => (sectionRefs.current[0] = el)}>
-				<WorkCard />
-			</div>
 
 			{sectionData.map((section, index) => (
 				<div key={index} ref={(el) => (sectionRefs.current[index + 1] = el)}>
